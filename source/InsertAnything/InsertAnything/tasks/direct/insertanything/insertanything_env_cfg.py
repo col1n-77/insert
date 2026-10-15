@@ -71,6 +71,8 @@ class ObsRandCfg:
 @configclass
 class CtrlCfg:
     ema_factor: float = 0.2
+    # Keep the original controller unless six-DOF execution is explicitly requested.
+    lock_roll_pitch: bool = True
 
     pos_action_bounds: list = [0.05, 0.05, 0.05]
     rot_action_bounds: list = [1.0, 1.0, 1.0]
@@ -115,6 +117,9 @@ class InsertAnythingEnvCfg(DirectRLEnvCfg):
     ctrl: CtrlCfg = CtrlCfg()
 
     evaluation_mode: bool = False
+    # Uniform +/- angle about TCP +Y, pivoting the peg about the TCP at reset.
+    # Zero preserves the original grasp and the original random-number sequence.
+    initial_in_hand_tilt_deg: float = 0.0
     episode_length_s: float = 10.0
 
     sim: SimulationCfg = SimulationCfg(

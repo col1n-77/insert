@@ -1,0 +1,15 @@
+{
+  "schema": "tactile_rotation_model_v1",
+  "model": {"feature_dim": 128, "opening_scale_m": 0.08},
+  "image_size_hw": [120, 160],
+  "epochs": 50,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "validation_fraction": 0.15,
+  "test_fraction": 0.15,
+  "seed": 0,
+  "loss": "SO(3) geodesic angle, radians",
+  "reference_doi": "10.1016/j.robot.2022.104321",
+  "scope": "User-specified stereo CNN plus measured opening to full 3D rotation; extends the paper's single deflection-angle AngleNet; no real-domain adaptation in v1"
+}

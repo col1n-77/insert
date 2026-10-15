@@ -16,6 +16,8 @@
 !source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/**/*.usd
 
 # Python
+.venv*/
+.cache/
 .DS_Store
 **/*.egg-info/
 **/__pycache__/
@@ -74,8 +76,24 @@ _build
 # Teleop Recorded Dataset
 /datasets/
 
-# Tests
-tests/
+# Test sources are versioned.
 
 # Docker history
 .isaac-lab-docker-history
+
+# Local credentials and experiment data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+**/*.h5
+**/*.hdf5
+**/*.npz
+**/*.npy
+**/*.mp4
+**/*.avi
+**/*.zip
+**/validation/
+# Generated TacEx composition layer contains machine-specific references.
+/InsertAnything_tactile/assets/franka_gsmini_physx.usda

@@ -1,0 +1,5 @@
+# CPU tests only. Install torch separately for the desired CPU/CUDA build.
+numpy==1.26.0
+scipy==1.15.3
+h5py==3.16.0
+pytest==9.1.1

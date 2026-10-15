@@ -1,0 +1,1423 @@
+{
+  "snapshot_date": "2026-10-15",
+  "upstream": "https://github.com/mzhsoul/InsertAnything",
+  "upstream_commit": "f033da5ccbc35a34369a0ac86e04c3e74b1408a0",
+  "files": [
+    {
+      "project": "InsertAnything",
+      "source_path": ".dockerignore",
+      "repository_path": ".dockerignore",
+      "source_sha256": "17297eff847147bc1a17917d07fe19f2a5f66aa0bbb5c69b3aecfa9a217b8eaf",
+      "published_sha256": "17297eff847147bc1a17917d07fe19f2a5f66aa0bbb5c69b3aecfa9a217b8eaf",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".flake8",
+      "repository_path": ".flake8",
+      "source_sha256": "302500f7fff03b0adb87df8796ddb03b14b281dcedb9102383cffa7c3fd9e179",
+      "published_sha256": "302500f7fff03b0adb87df8796ddb03b14b281dcedb9102383cffa7c3fd9e179",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".gitattributes",
+      "repository_path": ".gitattributes",
+      "source_sha256": "65b1023623fb87849b0d7e7a39141bd9d2662d98dcd55fefc9e8bf1683d2d934",
+      "published_sha256": "65b1023623fb87849b0d7e7a39141bd9d2662d98dcd55fefc9e8bf1683d2d934",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".gitignore",
+      "repository_path": ".gitignore",
+      "source_sha256": "b22296dff6655f44e3347775b1d02d2a5f63850709a3aa8bd4ecfb73c5e11e3e",
+      "published_sha256": "c2eb740c46136b8e45e14dd983349cbe4fc67403ef0cc4181f83c4da0f694a68",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".pre-commit-config.yaml",
+      "repository_path": ".pre-commit-config.yaml",
+      "source_sha256": "b75637cdb1735d07d4fa3d87a7adf8e8b1f9f35028ec13da53ce783c9d5dc68d",
+      "published_sha256": "b75637cdb1735d07d4fa3d87a7adf8e8b1f9f35028ec13da53ce783c9d5dc68d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/.gitignore",
+      "repository_path": ".vscode/.gitignore",
+      "source_sha256": "687f00ca5a6dade0384da331f8eae020671f5ab69b858c7a95c57ed3aff196bb",
+      "published_sha256": "687f00ca5a6dade0384da331f8eae020671f5ab69b858c7a95c57ed3aff196bb",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/extensions.json",
+      "repository_path": ".vscode/extensions.json",
+      "source_sha256": "4fb90a7ba8a7c26e3e96711462bd3efac6f5b3232a32e427016ee42b53460a05",
+      "published_sha256": "4fb90a7ba8a7c26e3e96711462bd3efac6f5b3232a32e427016ee42b53460a05",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/tasks.json",
+      "repository_path": ".vscode/tasks.json",
+      "source_sha256": "55bddfbef273fa46d9b0ef787264922bbf5065a75e1c0af143e09e9fd7a7d1e1",
+      "published_sha256": "55bddfbef273fa46d9b0ef787264922bbf5065a75e1c0af143e09e9fd7a7d1e1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/tools/launch.template.json",
+      "repository_path": ".vscode/tools/launch.template.json",
+      "source_sha256": "b3d7feaeb803f731f8be44c526bf8f732448732989f6b3855f3b98b735c27a9e",
+      "published_sha256": "b3d7feaeb803f731f8be44c526bf8f732448732989f6b3855f3b98b735c27a9e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/tools/settings.template.json",
+      "repository_path": ".vscode/tools/settings.template.json",
+      "source_sha256": "1654bacf62ec0b32ce3e8f9602a70ca26c796c11c8cbc316bb07ceeca9b0fcf0",
+      "published_sha256": "1654bacf62ec0b32ce3e8f9602a70ca26c796c11c8cbc316bb07ceeca9b0fcf0",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": ".vscode/tools/setup_vscode.py",
+      "repository_path": ".vscode/tools/setup_vscode.py",
+      "source_sha256": "c95ed9f6401f6f73752dff5657eddac38be481aa207e8cf4305e1a25ca521c4f",
+      "published_sha256": "c95ed9f6401f6f73752dff5657eddac38be481aa207e8cf4305e1a25ca521c4f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "LICENSE",
+      "repository_path": "LICENSE",
+      "source_sha256": "85d54fcea1322afd84c5ca691a29af34d12e68dbcd264e3064c439273ab246ff",
+      "published_sha256": "85d54fcea1322afd84c5ca691a29af34d12e68dbcd264e3064c439273ab246ff",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "README.md",
+      "repository_path": "README.md",
+      "source_sha256": "27bc72999f0eb000d73a8612bb84e22894a9476a861036f7523885147b600836",
+      "published_sha256": "f83e544ce81b54a659e19ac5364dd6765cb590370e1b61f9bc9d3be4f696e158",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "docs/figures/insertanything_method.png",
+      "repository_path": "docs/figures/insertanything_method.png",
+      "source_sha256": "0ad7c327a2600db8781495c828c231da591ae885b3e3959eb2aacd2f739a169a",
+      "published_sha256": "0ad7c327a2600db8781495c828c231da591ae885b3e3959eb2aacd2f739a169a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "docs/figures/insertanything_overview.png",
+      "repository_path": "docs/figures/insertanything_overview.png",
+      "source_sha256": "a364ea055258058ed4f170479783cec4600dc6b84ac196b4e2b6d6186fd3b3d6",
+      "published_sha256": "a364ea055258058ed4f170479783cec4600dc6b84ac196b4e2b6d6186fd3b3d6",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/check_inhand_6d.py",
+      "repository_path": "scripts/check_inhand_6d.py",
+      "source_sha256": "7d1be46b601dea796b6644ea47ca901d83c449eb0487e9868caca528d07d57fa",
+      "published_sha256": "7d1be46b601dea796b6644ea47ca901d83c449eb0487e9868caca528d07d57fa",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/eval_inhand_policy.py",
+      "repository_path": "scripts/eval_inhand_policy.py",
+      "source_sha256": "6364770a3c2b7ed628486148de9eb0a55898d047cf572392f9ae26575940932d",
+      "published_sha256": "6364770a3c2b7ed628486148de9eb0a55898d047cf572392f9ae26575940932d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/list_envs.py",
+      "repository_path": "scripts/list_envs.py",
+      "source_sha256": "8170bdefd46b82597d52aca44a6022cd8782e507e9d9fbdf64b7ce14bef8642d",
+      "published_sha256": "8170bdefd46b82597d52aca44a6022cd8782e507e9d9fbdf64b7ce14bef8642d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/python.sh",
+      "repository_path": "scripts/python.sh",
+      "source_sha256": "8a5d02f495453e4ed34640eee7bca2d35b54c67ced5efa7529daf371cb28f741",
+      "published_sha256": "c1f474d925abc12957078a37558d9471bea93ea630ffe0b3b0f2c209d6fedf12",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/random_agent.py",
+      "repository_path": "scripts/random_agent.py",
+      "source_sha256": "6a99ce809ee5bfe47ff541e0726f6202d2b8c8c76e0d57a96740af124a2dd4bb",
+      "published_sha256": "6a99ce809ee5bfe47ff541e0726f6202d2b8c8c76e0d57a96740af124a2dd4bb",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/rl_games/play.py",
+      "repository_path": "scripts/rl_games/play.py",
+      "source_sha256": "71e3b3304397a45d233a9827c430ac7e4f85864ee85956c23c16604ca54127d5",
+      "published_sha256": "71e3b3304397a45d233a9827c430ac7e4f85864ee85956c23c16604ca54127d5",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/rl_games/train.py",
+      "repository_path": "scripts/rl_games/train.py",
+      "source_sha256": "16e8808b0f4b4a3810b2f3f116b4807c0a6e140e8e3e396abd9002be4d632627",
+      "published_sha256": "16e8808b0f4b4a3810b2f3f116b4807c0a6e140e8e3e396abd9002be4d632627",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/setup_local_env.sh",
+      "repository_path": "scripts/setup_local_env.sh",
+      "source_sha256": "a62693185120c69a62772e6998b457e1feb580c1b25e52ff0f0af528f922bb09",
+      "published_sha256": "bc64d5c489ef13692780bad6e68327b15061f4df65fec9eac97724ffe75a34c1",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/smoke_test.py",
+      "repository_path": "scripts/smoke_test.py",
+      "source_sha256": "f46ff630c9f97c1a26460d6b1e4967d4f4b0332a55cd2e8a16420a86fd3c03f7",
+      "published_sha256": "f46ff630c9f97c1a26460d6b1e4967d4f4b0332a55cd2e8a16420a86fd3c03f7",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "scripts/zero_agent.py",
+      "repository_path": "scripts/zero_agent.py",
+      "source_sha256": "0378338bc1c779878c10f56d235a2b6bcdea7ce222dbfd0f305dc2322ae321a6",
+      "published_sha256": "0378338bc1c779878c10f56d235a2b6bcdea7ce222dbfd0f305dc2322ae321a6",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/__init__.py",
+      "repository_path": "source/InsertAnything/InsertAnything/__init__.py",
+      "source_sha256": "c0c289dd8408130d75cadbbb762be25a2de21d9ae0298cebd3fd6782b95b8af4",
+      "published_sha256": "c0c289dd8408130d75cadbbb762be25a2de21d9ae0298cebd3fd6782b95b8af4",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/__init__.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/__init__.py",
+      "source_sha256": "098fcc6bb68a96b995f3dc47aa377afb9d5e1da108a4e404a754b70e3bcca9eb",
+      "published_sha256": "098fcc6bb68a96b995f3dc47aa377afb9d5e1da108a4e404a754b70e3bcca9eb",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/__init__.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/__init__.py",
+      "source_sha256": "0f061c6be551c578c0bf4e7b9c217d86b5ff740adce37b99d70fd997feddcabe",
+      "published_sha256": "0f061c6be551c578c0bf4e7b9c217d86b5ff740adce37b99d70fd997feddcabe",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/README.md",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/README.md",
+      "source_sha256": "71768bd9694806bc68bd547fc288f74a7c68e646323617417b1ba46bd80738e0",
+      "published_sha256": "71768bd9694806bc68bd547fc288f74a7c68e646323617417b1ba46bd80738e0",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/__init__.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/__init__.py",
+      "source_sha256": "987ea8026138181be7f53e22697d0ecdb3e35a98952937e567e15596fe95f987",
+      "published_sha256": "987ea8026138181be7f53e22697d0ecdb3e35a98952937e567e15596fe95f987",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/__init__.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/__init__.py",
+      "source_sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+      "published_sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_L_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_L_cfg.yaml",
+      "source_sha256": "1af5a17788bdad7fa151dbcad39db449a87fe8aae4d880e8aa18beb4539ea00e",
+      "published_sha256": "1af5a17788bdad7fa151dbcad39db449a87fe8aae4d880e8aa18beb4539ea00e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_cfg.yaml",
+      "source_sha256": "77e8f2894c5a49503b5272144bedffd934e417f24278a609cc3674177e0084ea",
+      "published_sha256": "77e8f2894c5a49503b5272144bedffd934e417f24278a609cc3674177e0084ea",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_circle_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_circle_cfg.yaml",
+      "source_sha256": "acfa27bd80a8a110d772d5e7ad0f79e205ae5a7ce5fa812fb3e89ed16ecc310c",
+      "published_sha256": "acfa27bd80a8a110d772d5e7ad0f79e205ae5a7ce5fa812fb3e89ed16ecc310c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_hexagon_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_hexagon_cfg.yaml",
+      "source_sha256": "71bd23c844c5fce29a8be414b720e81f5df8862b408d24233f74a01628e6735a",
+      "published_sha256": "71bd23c844c5fce29a8be414b720e81f5df8862b408d24233f74a01628e6735a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_square_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_square_cfg.yaml",
+      "source_sha256": "1f8318b055e32bf0f9d3f351bf1bf494467eb2192aa665931df19775b3959bb6",
+      "published_sha256": "1f8318b055e32bf0f9d3f351bf1bf494467eb2192aa665931df19775b3959bb6",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_triangle_cfg.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/agents/rl_games_ppo_triangle_cfg.yaml",
+      "source_sha256": "0e31503964a3c102332089e3a2bb37d6af70c3a3c073f68d4a20bb0f703148f1",
+      "published_sha256": "0e31503964a3c102332089e3a2bb37d6af70c3a3c073f68d4a20bb0f703148f1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_hole.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_hole.usd",
+      "source_sha256": "7b7faa2c5909515af48a49171fb80ef30781570ab24d3b3a68f73cd8fc293fb3",
+      "published_sha256": "7b7faa2c5909515af48a49171fb80ef30781570ab24d3b3a68f73cd8fc293fb3",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_I.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_I.usd",
+      "source_sha256": "b1158df571a1235f78e6da0704c93dd503c7a9c8d8af9a77959139b6acdb4847",
+      "published_sha256": "b1158df571a1235f78e6da0704c93dd503c7a9c8d8af9a77959139b6acdb4847",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_II.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_II.usd",
+      "source_sha256": "27b107372ca07997eaed4ce55dd7d455e1f8ed27e5442091b37c98ae12ff9a92",
+      "published_sha256": "27b107372ca07997eaed4ce55dd7d455e1f8ed27e5442091b37c98ae12ff9a92",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_III.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_III.usd",
+      "source_sha256": "67e6906c5bb01af384b6c3b28b485d5e667be55bcf664855a7a3dcf804fa8a29",
+      "published_sha256": "67e6906c5bb01af384b6c3b28b485d5e667be55bcf664855a7a3dcf804fa8a29",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_IV.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/L_hole/L_peg_IV.usd",
+      "source_sha256": "cdc5e672ebbc7f5a93b966664a9c26027ad0123c9d6ab1c315d2cc46adbc1f6d",
+      "published_sha256": "cdc5e672ebbc7f5a93b966664a9c26027ad0123c9d6ab1c315d2cc46adbc1f6d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_hole.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_hole.usd",
+      "source_sha256": "5c9c05339d846c249de7e4c80f40adfed47ca3826158191f8f60d8e29448ceb2",
+      "published_sha256": "5c9c05339d846c249de7e4c80f40adfed47ca3826158191f8f60d8e29448ceb2",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_I.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_I.usd",
+      "source_sha256": "6e4a3a8ce9fca05126603f7fe646624be95ae51e909ee128d1d98f1ddca33775",
+      "published_sha256": "6e4a3a8ce9fca05126603f7fe646624be95ae51e909ee128d1d98f1ddca33775",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_II.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_II.usd",
+      "source_sha256": "824443d25e1701168b29128b07ad886d70d627cae3f68ce642f6baa318df31b5",
+      "published_sha256": "824443d25e1701168b29128b07ad886d70d627cae3f68ce642f6baa318df31b5",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_III.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_III.usd",
+      "source_sha256": "d90474e9ae24036569716536bb2c8cc7e7a1eb951d40b718e0edbde14741f26c",
+      "published_sha256": "d90474e9ae24036569716536bb2c8cc7e7a1eb951d40b718e0edbde14741f26c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_IV.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/circle/circle_peg_IV.usd",
+      "source_sha256": "344ef56fb109b365fb8e3c8c8da5565178682bb6556e7a4b21b7065cb567ab0c",
+      "published_sha256": "344ef56fb109b365fb8e3c8c8da5565178682bb6556e7a4b21b7065cb567ab0c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_hole.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_hole.usd",
+      "source_sha256": "a7d20d81f6ab812a7b59ddb20fe2985a4ed00b7a3c3250a0774ac8bfd2af6257",
+      "published_sha256": "a7d20d81f6ab812a7b59ddb20fe2985a4ed00b7a3c3250a0774ac8bfd2af6257",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_I.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_I.usd",
+      "source_sha256": "493aba6c9ba184442ba10b26727bc64db32217677f1d9febdaa01da61e0b38d1",
+      "published_sha256": "493aba6c9ba184442ba10b26727bc64db32217677f1d9febdaa01da61e0b38d1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_II.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_II.usd",
+      "source_sha256": "d50eacb562a2513b96cd2ccd41bf65933f5f7fb6a9c9e2a7ea4fc707002bbb14",
+      "published_sha256": "d50eacb562a2513b96cd2ccd41bf65933f5f7fb6a9c9e2a7ea4fc707002bbb14",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_III.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_III.usd",
+      "source_sha256": "092b23fe4e280be5263a1f84ef683e4f201d0f92d0a2cede44addc85be4e0eb8",
+      "published_sha256": "092b23fe4e280be5263a1f84ef683e4f201d0f92d0a2cede44addc85be4e0eb8",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_IV.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/hexagon/hexagon_peg_IV.usd",
+      "source_sha256": "b3c865c053bbf62bcb77b52a996c0819ba460a80fd3d65185fe5c92500cf213c",
+      "published_sha256": "b3c865c053bbf62bcb77b52a996c0819ba460a80fd3d65185fe5c92500cf213c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_hole.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_hole.usd",
+      "source_sha256": "459798364e065682d4672691e2738ce11cd08bee107d08f649be0d1997ed6f3a",
+      "published_sha256": "459798364e065682d4672691e2738ce11cd08bee107d08f649be0d1997ed6f3a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_I.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_I.usd",
+      "source_sha256": "239055096437aca2a5803f5ada071f523ebeb5802db4b2e22ecf79f70ad116cc",
+      "published_sha256": "239055096437aca2a5803f5ada071f523ebeb5802db4b2e22ecf79f70ad116cc",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_II.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_II.usd",
+      "source_sha256": "e8e9944589b85ca5cec9a00cc4281748be74dfe474c6007f82ebac5144b37227",
+      "published_sha256": "e8e9944589b85ca5cec9a00cc4281748be74dfe474c6007f82ebac5144b37227",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_III.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_III.usd",
+      "source_sha256": "b4c0ebe61879a17924a5e486edd993d80959c3167359b8da3f8a71ab707d794b",
+      "published_sha256": "b4c0ebe61879a17924a5e486edd993d80959c3167359b8da3f8a71ab707d794b",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_IV.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/square/square_peg_IV.usd",
+      "source_sha256": "9653c33fd3db1b20582357b529ea32e55023d0a51787aa44ba40fae0ee4119c4",
+      "published_sha256": "9653c33fd3db1b20582357b529ea32e55023d0a51787aa44ba40fae0ee4119c4",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_hole.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_hole.usd",
+      "source_sha256": "33b571b00ef1811f9bc0a934c95b7731130ff73b2a9dc2dc248dcd4484b37915",
+      "published_sha256": "33b571b00ef1811f9bc0a934c95b7731130ff73b2a9dc2dc248dcd4484b37915",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_I.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_I.usd",
+      "source_sha256": "2bd84665dc6f8d5923195d45af09f185a3971b87162bfde30c753a92a8e90f3c",
+      "published_sha256": "2bd84665dc6f8d5923195d45af09f185a3971b87162bfde30c753a92a8e90f3c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_II.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_II.usd",
+      "source_sha256": "3d3b0a3e094873ed59365758a492c56de76ef94be71931cd6d6f576727d3b59f",
+      "published_sha256": "3d3b0a3e094873ed59365758a492c56de76ef94be71931cd6d6f576727d3b59f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_III.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_III.usd",
+      "source_sha256": "3074159832ce0e49fc178cc7fc9e454cdc1335f5ccaee31dda9aaaea5d338d3b",
+      "published_sha256": "3074159832ce0e49fc178cc7fc9e454cdc1335f5ccaee31dda9aaaea5d338d3b",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_IV.usd",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/assets/triangle/triangle_peg_IV.usd",
+      "source_sha256": "7a1dd187e56733a5a5f9636b59a2c101838d7491a043d82f628e7ce59817942d",
+      "published_sha256": "7a1dd187e56733a5a5f9636b59a2c101838d7491a043d82f628e7ce59817942d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints/README.md",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints/README.md",
+      "source_sha256": "3680ec10eff7c3256546bbe3205fb9f150478084064f1ca5b14b8ecf5890020c",
+      "published_sha256": "3680ec10eff7c3256546bbe3205fb9f150478084064f1ca5b14b8ecf5890020c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_control.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_control.py",
+      "source_sha256": "ede0ecda9a4ae6b097e1dc62708d5bf82b6d633ade379ac823d8f04385d1dab2",
+      "published_sha256": "ede0ecda9a4ae6b097e1dc62708d5bf82b6d633ade379ac823d8f04385d1dab2",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_env.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_env.py",
+      "source_sha256": "71cfda9a10df38f639fb446749616220868daece4cac7f0e195b11c16311a497",
+      "published_sha256": "71cfda9a10df38f639fb446749616220868daece4cac7f0e195b11c16311a497",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_env_cfg.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_env_cfg.py",
+      "source_sha256": "63d168f1966c392b2a27c3744aaced97e4309a87127c6324f890a9cb5226a0a3",
+      "published_sha256": "63d168f1966c392b2a27c3744aaced97e4309a87127c6324f890a9cb5226a0a3",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_tasks_cfg.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_tasks_cfg.py",
+      "source_sha256": "7c4bcb4792ebee236d9ee034ad0591a190c608013edf0f075429e2efd2c36db9",
+      "published_sha256": "7c4bcb4792ebee236d9ee034ad0591a190c608013edf0f075429e2efd2c36db9",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_utils.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/insertanything_utils.py",
+      "source_sha256": "63a085bdde0eb37f14080fffb3ac5f63a3b5ef1201928616382957d14c0f39da",
+      "published_sha256": "63a085bdde0eb37f14080fffb3ac5f63a3b5ef1201928616382957d14c0f39da",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/README.md",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/README.md",
+      "source_sha256": "edfe2d51485b999d816b0e003a17a51ec5cfef6d9a133b81d99a505a8ee91c3e",
+      "published_sha256": "edfe2d51485b999d816b0e003a17a51ec5cfef6d9a133b81d99a505a8ee91c3e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/action_postprocessor.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/action_postprocessor.py",
+      "source_sha256": "243bb29ce5f1c64e17988c790e2473fd81606d6ab7d43cc9a7ea49c0ceedc59f",
+      "published_sha256": "243bb29ce5f1c64e17988c790e2473fd81606d6ab7d43cc9a7ea49c0ceedc59f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/checkpoints/README.md",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/checkpoints/README.md",
+      "source_sha256": "926c03758fb085d160caec588bc4d205810ce4589d4f50e6844bc24dbfc5b1dc",
+      "published_sha256": "926c03758fb085d160caec588bc4d205810ce4589d4f50e6844bc24dbfc5b1dc",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/configs/calibration_insertanything_basic.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/configs/calibration_insertanything_basic.yaml",
+      "source_sha256": "f5a221a21dec56edc01ec6846a3b081d6f596b118a74b4c30db23ef70028310d",
+      "published_sha256": "f5a221a21dec56edc01ec6846a3b081d6f596b118a74b4c30db23ef70028310d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/configs/calibration_insertanything_with_contact_force_template.yaml",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/configs/calibration_insertanything_with_contact_force_template.yaml",
+      "source_sha256": "716243a9fba13c27408ebb9cc1b9cf617c97ff62fe98343980b4e3137577ad35",
+      "published_sha256": "716243a9fba13c27408ebb9cc1b9cf617c97ff62fe98343980b4e3137577ad35",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/observation_builder.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/observation_builder.py",
+      "source_sha256": "7675a5d1715ddd830d377e3d51ed7823708cb2b99961e161607d399a4d8ec9e6",
+      "published_sha256": "7675a5d1715ddd830d377e3d51ed7823708cb2b99961e161607d399a4d8ec9e6",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/robot_state_adapter.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/robot_state_adapter.py",
+      "source_sha256": "20fbfb7fe8867ce7aa6efa3b8fc9866880ef14b38888c8df2699ec84569e0331",
+      "published_sha256": "20fbfb7fe8867ce7aa6efa3b8fc9866880ef14b38888c8df2699ec84569e0331",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/run_multi_episode_closed_loop.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/run_multi_episode_closed_loop.py",
+      "source_sha256": "c24a5b640abd8138453cbd3828f3b59330fd669efb2e669990b5344197356fc1",
+      "published_sha256": "c24a5b640abd8138453cbd3828f3b59330fd669efb2e669990b5344197356fc1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/safety_guard.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/safety_guard.py",
+      "source_sha256": "738d354c0e731d5b1aab6e5be897af02ecbaa27dbbc23013b7093e057636f419",
+      "published_sha256": "738d354c0e731d5b1aab6e5be897af02ecbaa27dbbc23013b7093e057636f419",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/torch_policy.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/torch_policy.py",
+      "source_sha256": "634138b3ea3b3ccd4f7fd986d45dbf9ad2c4c08f153d8b20da0ad9532fb6c25d",
+      "published_sha256": "634138b3ea3b3ccd4f7fd986d45dbf9ad2c4c08f153d8b20da0ad9532fb6c25d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/transforms.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/transforms.py",
+      "source_sha256": "8f49512ddbc5118c288489ae8118fee4ae84f1b179ce1ad2457df67a8a34fca6",
+      "published_sha256": "8f49512ddbc5118c288489ae8118fee4ae84f1b179ce1ad2457df67a8a34fca6",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/tactile_datalogger.py",
+      "repository_path": "source/InsertAnything/InsertAnything/tasks/direct/insertanything/tactile_datalogger.py",
+      "source_sha256": "322cef6851a15182a065f599d3d2dff1f6b15e244efe41a5e88c2878faa7121c",
+      "published_sha256": "322cef6851a15182a065f599d3d2dff1f6b15e244efe41a5e88c2878faa7121c",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/config/extension.toml",
+      "repository_path": "source/InsertAnything/config/extension.toml",
+      "source_sha256": "ce83d156693b80ba5e8212f9009f05cc299e8ec0bd9f423d5234d1b27b55ac6a",
+      "published_sha256": "ce83d156693b80ba5e8212f9009f05cc299e8ec0bd9f423d5234d1b27b55ac6a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/docs/CHANGELOG.rst",
+      "repository_path": "source/InsertAnything/docs/CHANGELOG.rst",
+      "source_sha256": "74b265dd6b85ba188b615153c9ce734db4bb75a209d39c964b442b6db6d46552",
+      "published_sha256": "74b265dd6b85ba188b615153c9ce734db4bb75a209d39c964b442b6db6d46552",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/pyproject.toml",
+      "repository_path": "source/InsertAnything/pyproject.toml",
+      "source_sha256": "5427dcc108de1d2537775540acdd539d65a2f31506ba992bc95e5bfeefb6f288",
+      "published_sha256": "5427dcc108de1d2537775540acdd539d65a2f31506ba992bc95e5bfeefb6f288",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything",
+      "source_path": "source/InsertAnything/setup.py",
+      "repository_path": "source/InsertAnything/setup.py",
+      "source_sha256": "89a7e351aa8562fc771d48eb4ec2e6cb4536f13d9364a3cdaaa0345c00dfaeff",
+      "published_sha256": "89a7e351aa8562fc771d48eb4ec2e6cb4536f13d9364a3cdaaa0345c00dfaeff",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": ".gitignore",
+      "repository_path": "InsertAnything_angle/.gitignore",
+      "source_sha256": "c25fe87a5148377724f821a4718a342a5d3667f3cbddc5b3f2ac5d3ce1cc6fcf",
+      "published_sha256": "c25fe87a5148377724f821a4718a342a5d3667f3cbddc5b3f2ac5d3ce1cc6fcf",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "README.md",
+      "repository_path": "InsertAnything_angle/README.md",
+      "source_sha256": "464600670378b59cb9c60651cdf00e431914b4b122daddc767addbc4e6140366",
+      "published_sha256": "81e7c2f54fb51cadb405e6a7ac8944b9c7f2f3305cccfad63378fc251ff79c81",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/check_angle_env.py",
+      "repository_path": "InsertAnything_angle/scripts/check_angle_env.py",
+      "source_sha256": "9cbe5cb609f3216cc391112362b3a525f70f4facbd4ba164a9fe2075ac3af7eb",
+      "published_sha256": "9cbe5cb609f3216cc391112362b3a525f70f4facbd4ba164a9fe2075ac3af7eb",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/eval_angle_policy.py",
+      "repository_path": "InsertAnything_angle/scripts/eval_angle_policy.py",
+      "source_sha256": "6356e2271f91b57ced0c3ca0f38691c302bc7c1d19ad43d1cfeb04cefae538fd",
+      "published_sha256": "6356e2271f91b57ced0c3ca0f38691c302bc7c1d19ad43d1cfeb04cefae538fd",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/python.sh",
+      "repository_path": "InsertAnything_angle/scripts/python.sh",
+      "source_sha256": "1381ec61bdfa551793d2181b46c718400e7b6ef5d4e06147a2db3d76d37310ab",
+      "published_sha256": "45f569f5303b763f0482e855f0d84bf73a03bab59b7c054c5bfb8d21c88a84ea",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/run_reward_study.py",
+      "repository_path": "InsertAnything_angle/scripts/run_reward_study.py",
+      "source_sha256": "51539151227d4dc0b997c4efbe7ae18a39731b4c15a84814b6b107a0215c0d37",
+      "published_sha256": "2750e8178396a9347602dfafa3d8c8fcfb544bb485bc28984949d0a24476483d",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/summarize_reward_study.py",
+      "repository_path": "InsertAnything_angle/scripts/summarize_reward_study.py",
+      "source_sha256": "c025cf6133d4c0490ea54fb5b07bbb79aec83a0d8ba3a12782134adebe5d30d5",
+      "published_sha256": "c025cf6133d4c0490ea54fb5b07bbb79aec83a0d8ba3a12782134adebe5d30d5",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/train_angle_rl.py",
+      "repository_path": "InsertAnything_angle/scripts/train_angle_rl.py",
+      "source_sha256": "504e06884bf299c793db8740eca1199e9e969711f7de342137d29574d4d19c38",
+      "published_sha256": "504e06884bf299c793db8740eca1199e9e969711f7de342137d29574d4d19c38",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "source/insertanything_angle/__init__.py",
+      "repository_path": "InsertAnything_angle/source/insertanything_angle/__init__.py",
+      "source_sha256": "7eafbfd67e14684ccec2e2deb5aa5ac4d56ae14c7ed1104b2c1ae58d625ed7b1",
+      "published_sha256": "7eafbfd67e14684ccec2e2deb5aa5ac4d56ae14c7ed1104b2c1ae58d625ed7b1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "source/insertanything_angle/env.py",
+      "repository_path": "InsertAnything_angle/source/insertanything_angle/env.py",
+      "source_sha256": "50c44ede0916f056537c4b9bd6e8b81de7759fbf18311fd35fb7326c9b72cf83",
+      "published_sha256": "50c44ede0916f056537c4b9bd6e8b81de7759fbf18311fd35fb7326c9b72cf83",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "source/insertanything_angle/env_cfg.py",
+      "repository_path": "InsertAnything_angle/source/insertanything_angle/env_cfg.py",
+      "source_sha256": "402453094ef5d669c7009332913ad806595962588311d2d00e50bb5b2aaf5d70",
+      "published_sha256": "402453094ef5d669c7009332913ad806595962588311d2d00e50bb5b2aaf5d70",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "source/insertanything_angle/math.py",
+      "repository_path": "InsertAnything_angle/source/insertanything_angle/math.py",
+      "source_sha256": "738f64dcfcc153e337aa15a79c2696880806e0ba593c4d06452517cf89c8fa4a",
+      "published_sha256": "738f64dcfcc153e337aa15a79c2696880806e0ba593c4d06452517cf89c8fa4a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "tests/test_angle_math.py",
+      "repository_path": "InsertAnything_angle/tests/test_angle_math.py",
+      "source_sha256": "ee72f8304d563b4a50197a79b24739f92150677394dd4ee24365b1255a9b63fe",
+      "published_sha256": "ee72f8304d563b4a50197a79b24739f92150677394dd4ee24365b1255a9b63fe",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": ".gitignore",
+      "repository_path": "InsertAnything_tactile/.gitignore",
+      "source_sha256": "9085939f6ddc90098a0e3131a8d122d5fdd4bd903518ab62b63ec09d89755e00",
+      "published_sha256": "9085939f6ddc90098a0e3131a8d122d5fdd4bd903518ab62b63ec09d89755e00",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "README.md",
+      "repository_path": "InsertAnything_tactile/README.md",
+      "source_sha256": "a5f864d14a3c2d700b9e3b63f191eac9f71b1578b0471761af05307dfab74fdd",
+      "published_sha256": "b9e648213491f5dd0372604af23234403e003f54150e2a81797a7e70f461d1f2",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "configs/pose_v1.json",
+      "repository_path": "InsertAnything_tactile/configs/pose_v1.json",
+      "source_sha256": "c13575680afce34b3fb7a21cb11c92377f7cb12a2ad3e6bd03c5d8f68fbbe30e",
+      "published_sha256": "c13575680afce34b3fb7a21cb11c92377f7cb12a2ad3e6bd03c5d8f68fbbe30e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "configs/pose_v2.json",
+      "repository_path": "InsertAnything_tactile/configs/pose_v2.json",
+      "source_sha256": "dada6faef64a01e43b3fd951cdd26f33c1cc1c5ca5c43c5bc541f61871d3aa60",
+      "published_sha256": "dada6faef64a01e43b3fd951cdd26f33c1cc1c5ca5c43c5bc541f61871d3aa60",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/_collect_normal_angle_worker.py",
+      "repository_path": "InsertAnything_tactile/scripts/_collect_normal_angle_worker.py",
+      "source_sha256": "e4a94991dca9974b9c2f36d09f5901742f9ca33166ca6ef6968bfb6315b6c9c4",
+      "published_sha256": "e4a94991dca9974b9c2f36d09f5901742f9ca33166ca6ef6968bfb6315b6c9c4",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/_collect_tcp_pose_worker.py",
+      "repository_path": "InsertAnything_tactile/scripts/_collect_tcp_pose_worker.py",
+      "source_sha256": "f2990792302ef4e7f5ff91a81c6337f7f7775a847a332f8f4ac3cfd4461c190b",
+      "published_sha256": "f2990792302ef4e7f5ff91a81c6337f7f7775a847a332f8f4ac3cfd4461c190b",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/adapt_dynamic_angle.py",
+      "repository_path": "InsertAnything_tactile/scripts/adapt_dynamic_angle.py",
+      "source_sha256": "fbdd6efd8bfe31b270c6de83d95835e2527ac6ab2f3cd37f43910a2e1fe0ddec",
+      "published_sha256": "fbdd6efd8bfe31b270c6de83d95835e2527ac6ab2f3cd37f43910a2e1fe0ddec",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/capture.py",
+      "repository_path": "InsertAnything_tactile/scripts/capture.py",
+      "source_sha256": "0b919d241a91615e505a520d8b463666f06540bfcd9291891f09226ad7c79888",
+      "published_sha256": "0b919d241a91615e505a520d8b463666f06540bfcd9291891f09226ad7c79888",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/check_configs.py",
+      "repository_path": "InsertAnything_tactile/scripts/check_configs.py",
+      "source_sha256": "4badf4a03dddd9eb0165b848f57cd7726cab2c00fe8443c8e1c6445aae62df6e",
+      "published_sha256": "4badf4a03dddd9eb0165b848f57cd7726cab2c00fe8443c8e1c6445aae62df6e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/check_tactile_rl.py",
+      "repository_path": "InsertAnything_tactile/scripts/check_tactile_rl.py",
+      "source_sha256": "d6b6f546c81943764e22464f22aff67d85d4d331b819707b1a36e980ebc133c0",
+      "published_sha256": "d6b6f546c81943764e22464f22aff67d85d4d331b819707b1a36e980ebc133c0",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/collect_dynamic_angle.py",
+      "repository_path": "InsertAnything_tactile/scripts/collect_dynamic_angle.py",
+      "source_sha256": "faa3f966791da44c234f8349f263df2e52969a9df717d61a01e4a387dae84578",
+      "published_sha256": "faa3f966791da44c234f8349f263df2e52969a9df717d61a01e4a387dae84578",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/collect_normal_angle_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/collect_normal_angle_data.py",
+      "source_sha256": "72081e375d97ab1a246544eb598ae14b6fb66a120ffe81e312b9d2c05ef52eba",
+      "published_sha256": "72081e375d97ab1a246544eb598ae14b6fb66a120ffe81e312b9d2c05ef52eba",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/collect_pose_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/collect_pose_data.py",
+      "source_sha256": "12f1d09d0e7d98360c5ab96f74c892d28ad56142817f3735d3fa15a01a2acd74",
+      "published_sha256": "12f1d09d0e7d98360c5ab96f74c892d28ad56142817f3735d3fa15a01a2acd74",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/collect_tcp_pose_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/collect_tcp_pose_data.py",
+      "source_sha256": "e8ff9bd02c0c38adac3d307eafb757519e7b27abac85b1bf27bc11736663b2b1",
+      "published_sha256": "e8ff9bd02c0c38adac3d307eafb757519e7b27abac85b1bf27bc11736663b2b1",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/diagnose_tactile_symmetry.py",
+      "repository_path": "InsertAnything_tactile/scripts/diagnose_tactile_symmetry.py",
+      "source_sha256": "08c03bfd94cadca692fedae35c8bdd2ba67c8d85645521ee3a36470a41c1e8d9",
+      "published_sha256": "08c03bfd94cadca692fedae35c8bdd2ba67c8d85645521ee3a36470a41c1e8d9",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/eval_tactile_rl.py",
+      "repository_path": "InsertAnything_tactile/scripts/eval_tactile_rl.py",
+      "source_sha256": "bdd95d74de5e4da8dc24e06ea6b1d3f67a7a18ad2178d866f9e8068012169ece",
+      "published_sha256": "bdd95d74de5e4da8dc24e06ea6b1d3f67a7a18ad2178d866f9e8068012169ece",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/evaluate_normal_angle.py",
+      "repository_path": "InsertAnything_tactile/scripts/evaluate_normal_angle.py",
+      "source_sha256": "6c14d146ca3db26a7e6673a81701a1ae3064a4f872aec436b598d52cf7503b41",
+      "published_sha256": "6c14d146ca3db26a7e6673a81701a1ae3064a4f872aec436b598d52cf7503b41",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/evaluate_pose.py",
+      "repository_path": "InsertAnything_tactile/scripts/evaluate_pose.py",
+      "source_sha256": "cc62b010fdb7e0999202f84bab70819771524a89b1441d98cb8c0f31ebf5881a",
+      "published_sha256": "cc62b010fdb7e0999202f84bab70819771524a89b1441d98cb8c0f31ebf5881a",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/inspect_normal_angle_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/inspect_normal_angle_data.py",
+      "source_sha256": "f7788f46003ec143a75f0c8432f01b774f403b85244c7ee403970c7991c2e28e",
+      "published_sha256": "f7788f46003ec143a75f0c8432f01b774f403b85244c7ee403970c7991c2e28e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/inspect_pose_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/inspect_pose_data.py",
+      "source_sha256": "7fed6e09c9bda7f85fde2e331c03c3fd63aa8be28cc459d0972fed0ddce404db",
+      "published_sha256": "7fed6e09c9bda7f85fde2e331c03c3fd63aa8be28cc459d0972fed0ddce404db",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/inspect_recording.py",
+      "repository_path": "InsertAnything_tactile/scripts/inspect_recording.py",
+      "source_sha256": "eefecf18e96066e68b0c4b911cd7fbdf332e4f68606cda169769060123e53ee4",
+      "published_sha256": "eefecf18e96066e68b0c4b911cd7fbdf332e4f68606cda169769060123e53ee4",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/inspect_tcp_pose_data.py",
+      "repository_path": "InsertAnything_tactile/scripts/inspect_tcp_pose_data.py",
+      "source_sha256": "438048606a6668b1455b728b5d983ce4ef65880810229eef4252d9d63615a1b0",
+      "published_sha256": "438048606a6668b1455b728b5d983ce4ef65880810229eef4252d9d63615a1b0",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/plot_capture.py",
+      "repository_path": "InsertAnything_tactile/scripts/plot_capture.py",
+      "source_sha256": "a0da3d67fe7ec0c8a5e5f015f9d42f5bb8385a6b4566d67cb9afd3666b26034e",
+      "published_sha256": "a0da3d67fe7ec0c8a5e5f015f9d42f5bb8385a6b4566d67cb9afd3666b26034e",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/predict_normal_angle.py",
+      "repository_path": "InsertAnything_tactile/scripts/predict_normal_angle.py",
+      "source_sha256": "8a1dd00b6d2d6fb53cbc21e1b0ecae55ec5e972e9bff7dd985b97a34d313f163",
+      "published_sha256": "8a1dd00b6d2d6fb53cbc21e1b0ecae55ec5e972e9bff7dd985b97a34d313f163",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/predict_pose.py",
+      "repository_path": "InsertAnything_tactile/scripts/predict_pose.py",
+      "source_sha256": "c827239aee6a18f335502208d10fefe116bb0c337d43b3549d940b50b9c300ed",
+      "published_sha256": "c827239aee6a18f335502208d10fefe116bb0c337d43b3549d940b50b9c300ed",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/python.sh",
+      "repository_path": "InsertAnything_tactile/scripts/python.sh",
+      "source_sha256": "bef67f151a7762d3ce5db52e7700e87c0391e07c0a14577784dd4d3b5dc787b6",
+      "published_sha256": "45f569f5303b763f0482e855f0d84bf73a03bab59b7c054c5bfb8d21c88a84ea",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/record_eval.py",
+      "repository_path": "InsertAnything_tactile/scripts/record_eval.py",
+      "source_sha256": "7f566e8a03c67b73b90526b07f62f832743427d1ab3e1c5a2a975d1896396c04",
+      "published_sha256": "6e028df2046e8a77b6a98b6eb63c05616a5de3a7105af88c96a71520537d58b2",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/render_scene.py",
+      "repository_path": "InsertAnything_tactile/scripts/render_scene.py",
+      "source_sha256": "37558fbc45b8cb111a239c9728c0ab486d26a8fcd70531900066cfd1e368ab61",
+      "published_sha256": "37558fbc45b8cb111a239c9728c0ab486d26a8fcd70531900066cfd1e368ab61",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/render_scene_gallery.py",
+      "repository_path": "InsertAnything_tactile/scripts/render_scene_gallery.py",
+      "source_sha256": "e782217fcdd58a9096ffcb613e423903dd0aa30aca51e845ef44e25dd879f1b8",
+      "published_sha256": "e782217fcdd58a9096ffcb613e423903dd0aa30aca51e845ef44e25dd879f1b8",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/report_pose_results.py",
+      "repository_path": "InsertAnything_tactile/scripts/report_pose_results.py",
+      "source_sha256": "547492010cbddcc8592125d3a67a98ea8a6ecd817620b5e395b6ea7a22e88fdb",
+      "published_sha256": "547492010cbddcc8592125d3a67a98ea8a6ecd817620b5e395b6ea7a22e88fdb",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/train_normal_angle.py",
+      "repository_path": "InsertAnything_tactile/scripts/train_normal_angle.py",
+      "source_sha256": "a7b57bbe5f7353cd1fbbdda153d78c694f535c3f83856746e79b095f715f6df2",
+      "published_sha256": "a7b57bbe5f7353cd1fbbdda153d78c694f535c3f83856746e79b095f715f6df2",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/train_pose.py",
+      "repository_path": "InsertAnything_tactile/scripts/train_pose.py",
+      "source_sha256": "98aa11e69d6f62e0c90b3a647e1c0af8164a996f14785107a2bb151ff809161d",
+      "published_sha256": "98aa11e69d6f62e0c90b3a647e1c0af8164a996f14785107a2bb151ff809161d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/train_tactile_rl.py",
+      "repository_path": "InsertAnything_tactile/scripts/train_tactile_rl.py",
+      "source_sha256": "710803935cc9d8e0fd9637935de99dcc516917910aa97abd8aeca888c0cce693",
+      "published_sha256": "710803935cc9d8e0fd9637935de99dcc516917910aa97abd8aeca888c0cce693",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/validate_tactile_calibration.py",
+      "repository_path": "InsertAnything_tactile/scripts/validate_tactile_calibration.py",
+      "source_sha256": "2b616b88bfcf78f7c695351e466034f22a0f7006199ac4b44cfbca112cabcca5",
+      "published_sha256": "2b616b88bfcf78f7c695351e466034f22a0f7006199ac4b44cfbca112cabcca5",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "scripts/verify_isolation.py",
+      "repository_path": "InsertAnything_tactile/scripts/verify_isolation.py",
+      "source_sha256": "a4afa5da2cd3ab3338e729007033aae7c931c3282c3742e193b26f2ed3bb02eb",
+      "published_sha256": "a108c188b6d9e6ab4f211022179634f2cb0cf2f8981219c7f3cf491f6e5a326c",
+      "packaging_changed": true
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/__init__.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/__init__.py",
+      "source_sha256": "047c53f8df98c96e616eb571cb0c3c0cbdb28f2228974f1830bdb0e3385acdfc",
+      "published_sha256": "047c53f8df98c96e616eb571cb0c3c0cbdb28f2228974f1830bdb0e3385acdfc",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/assets.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/assets.py",
+      "source_sha256": "478d10b2e5e484712788382f41a2340ca716a8e02da3e747bf42da9c4240e935",
+      "published_sha256": "478d10b2e5e484712788382f41a2340ca716a8e02da3e747bf42da9c4240e935",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/config.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/config.py",
+      "source_sha256": "131af1128644299cb93668a2464c7197a737b86a1abcea0da14cae598f48906f",
+      "published_sha256": "131af1128644299cb93668a2464c7197a737b86a1abcea0da14cae598f48906f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/env.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/env.py",
+      "source_sha256": "f7f80e666b117e36db5b3276df1ccce0d6aba58ce1b11bf6953748a1c31c9876",
+      "published_sha256": "f7f80e666b117e36db5b3276df1ccce0d6aba58ce1b11bf6953748a1c31c9876",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/policy.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/policy.py",
+      "source_sha256": "69367c1142b0d383bb5babf73437f1af6499467a1f969ef99ef93a26787e4fc2",
+      "published_sha256": "69367c1142b0d383bb5babf73437f1af6499467a1f969ef99ef93a26787e4fc2",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/recording.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/recording.py",
+      "source_sha256": "cd843092b4fb40fb5f303e48dbd54bc2382853073914b38effafd81ca47e9aca",
+      "published_sha256": "cd843092b4fb40fb5f303e48dbd54bc2382853073914b38effafd81ca47e9aca",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/rl/__init__.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/rl/__init__.py",
+      "source_sha256": "f277d9495f407f18f68dc5130a167bbaaceee80628eae0f063e8364027b8a21f",
+      "published_sha256": "f277d9495f407f18f68dc5130a167bbaaceee80628eae0f063e8364027b8a21f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/rl/agent.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/rl/agent.py",
+      "source_sha256": "f131843a0b740ec456b092c1f68a6edf395480c1512d87b8e980895a9ac1d367",
+      "published_sha256": "f131843a0b740ec456b092c1f68a6edf395480c1512d87b8e980895a9ac1d367",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/rl/config.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/rl/config.py",
+      "source_sha256": "8cc0cb5978fc57cbabf283d66e7b52226fd1b0a05afae9064a227c1d3b151348",
+      "published_sha256": "8cc0cb5978fc57cbabf283d66e7b52226fd1b0a05afae9064a227c1d3b151348",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/insertanything_tactile/rl/env.py",
+      "repository_path": "InsertAnything_tactile/source/insertanything_tactile/rl/env.py",
+      "source_sha256": "8d5ee8eb451b3bd2670ffa323f9c37a9a53d429e51f3877d4808244f8a376227",
+      "published_sha256": "8d5ee8eb451b3bd2670ffa323f9c37a9a53d429e51f3877d4808244f8a376227",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_calibration.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_calibration.py",
+      "source_sha256": "b4668d3001c41e2fec44153b1d3915d369a76bdd3588a4c0b0b1485c81765cee",
+      "published_sha256": "b4668d3001c41e2fec44153b1d3915d369a76bdd3588a4c0b0b1485c81765cee",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/__init__.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/__init__.py",
+      "source_sha256": "2c3be2f0b1e79b9cdf34beccc2b5acf09bdde5764d56802b9114e2d85a76ccd7",
+      "published_sha256": "2c3be2f0b1e79b9cdf34beccc2b5acf09bdde5764d56802b9114e2d85a76ccd7",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/data.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/data.py",
+      "source_sha256": "90f87d3c4891f05f37f7d9b49ed394248cedb1abfe24ded79bb9153a4ba5831d",
+      "published_sha256": "90f87d3c4891f05f37f7d9b49ed394248cedb1abfe24ded79bb9153a4ba5831d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/evaluation.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/evaluation.py",
+      "source_sha256": "d292ee21ab0aafd510b9ba0b3eb3913a03b31e4903d624f6441304f11f12f686",
+      "published_sha256": "d292ee21ab0aafd510b9ba0b3eb3913a03b31e4903d624f6441304f11f12f686",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/model.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/model.py",
+      "source_sha256": "9672ccb201ad3b3e915a609c8525adf6f10e4d20fd601cad786a6ffff5fb913d",
+      "published_sha256": "9672ccb201ad3b3e915a609c8525adf6f10e4d20fd601cad786a6ffff5fb913d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/normal_learning.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/normal_learning.py",
+      "source_sha256": "874c055dcedb2ca6b0dc389d630752591b586ab10b4d4a11a1ab89174c0f58ba",
+      "published_sha256": "874c055dcedb2ca6b0dc389d630752591b586ab10b4d4a11a1ab89174c0f58ba",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/normal_sampling.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/normal_sampling.py",
+      "source_sha256": "d2a4da2e5464bfeeaae5687ee917ca258dbca012d0ea8f21bda5527d45940791",
+      "published_sha256": "d2a4da2e5464bfeeaae5687ee917ca258dbca012d0ea8f21bda5527d45940791",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/normal_sim_collection.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/normal_sim_collection.py",
+      "source_sha256": "c5612ffef669c5ebb776f81d61b42d583aed113faf57f9f1df97524fbf313fcc",
+      "published_sha256": "c5612ffef669c5ebb776f81d61b42d583aed113faf57f9f1df97524fbf313fcc",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/rl_estimator.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/rl_estimator.py",
+      "source_sha256": "032617bf5513ee1def99c8d8f275ede2c52b45ca5bd1e6cd9d452675ef8fca7f",
+      "published_sha256": "032617bf5513ee1def99c8d8f275ede2c52b45ca5bd1e6cd9d452675ef8fca7f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/rl_math.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/rl_math.py",
+      "source_sha256": "ce8e556174ec79707f3ca40205c556cf53c247ad93763125456667a9b2a403d4",
+      "published_sha256": "ce8e556174ec79707f3ca40205c556cf53c247ad93763125456667a9b2a403d4",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/rotations.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/rotations.py",
+      "source_sha256": "2fc1b8bb6330a58f9d90aecff30daf72b81cc2926f4c224a307aed27850e4940",
+      "published_sha256": "2fc1b8bb6330a58f9d90aecff30daf72b81cc2926f4c224a307aed27850e4940",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/sim_collection.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/sim_collection.py",
+      "source_sha256": "d99f7617fe19e1a27bfb5f22deac90d65cbfdc1668fb84aff2d600cbe45afa02",
+      "published_sha256": "d99f7617fe19e1a27bfb5f22deac90d65cbfdc1668fb84aff2d600cbe45afa02",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/tcp_kinematics.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/tcp_kinematics.py",
+      "source_sha256": "3a63bc01f3994df55869bb1b59ad060f3247dc403634fce1d7bf63236e6fc278",
+      "published_sha256": "3a63bc01f3994df55869bb1b59ad060f3247dc403634fce1d7bf63236e6fc278",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/tcp_sampling.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/tcp_sampling.py",
+      "source_sha256": "fdb67d37e1b2607404089cd9a04e98b5acc2d3648f13aa363f40c71272d4f037",
+      "published_sha256": "fdb67d37e1b2607404089cd9a04e98b5acc2d3648f13aa363f40c71272d4f037",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "source/tactile_pose/tcp_sim_collection.py",
+      "repository_path": "InsertAnything_tactile/source/tactile_pose/tcp_sim_collection.py",
+      "source_sha256": "a507a221159bd703925d52e607717b89e7342a5020ef69a136f2a3955d0a3179",
+      "published_sha256": "a507a221159bd703925d52e607717b89e7342a5020ef69a136f2a3955d0a3179",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_calibration.py",
+      "repository_path": "InsertAnything_tactile/tests/test_calibration.py",
+      "source_sha256": "75e30abb7f2686f5200296d3702c76405a4ea68b9864f330b17b2fef88209870",
+      "published_sha256": "75e30abb7f2686f5200296d3702c76405a4ea68b9864f330b17b2fef88209870",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_normal_sampling.py",
+      "repository_path": "InsertAnything_tactile/tests/test_normal_sampling.py",
+      "source_sha256": "d485d1e797127e9bf556ea10a40b5b43660712ec57860ed621bf4a3b7eadf370",
+      "published_sha256": "d485d1e797127e9bf556ea10a40b5b43660712ec57860ed621bf4a3b7eadf370",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_pose.py",
+      "repository_path": "InsertAnything_tactile/tests/test_pose.py",
+      "source_sha256": "1ec8fefc31ac014327f2870b67a3ef29f9a638c8ab76a69a749ceba83cea60ef",
+      "published_sha256": "1ec8fefc31ac014327f2870b67a3ef29f9a638c8ab76a69a749ceba83cea60ef",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_rl_estimator.py",
+      "repository_path": "InsertAnything_tactile/tests/test_rl_estimator.py",
+      "source_sha256": "6fba047b41055bd86cccc7516e8078e1245378e45069e19c577bf4dd759a74a0",
+      "published_sha256": "6fba047b41055bd86cccc7516e8078e1245378e45069e19c577bf4dd759a74a0",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_rl_math.py",
+      "repository_path": "InsertAnything_tactile/tests/test_rl_math.py",
+      "source_sha256": "7f018ceba3734606778a63c90b246303bce88c14579768a9d5e0b30887c3304f",
+      "published_sha256": "7f018ceba3734606778a63c90b246303bce88c14579768a9d5e0b30887c3304f",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_tactile",
+      "source_path": "tests/test_tcp_sampling.py",
+      "repository_path": "InsertAnything_tactile/tests/test_tcp_sampling.py",
+      "source_sha256": "977cbabf210c2ef9b3ecddc44fdd3cc942ba7f0caa197a695b69fcc646c1609d",
+      "published_sha256": "977cbabf210c2ef9b3ecddc44fdd3cc942ba7f0caa197a695b69fcc646c1609d",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything.md",
+      "repository_path": "docs/runbooks/README_insertanything.md",
+      "source_sha256": "26e4144b0456be6d7c4e46d8d7f41704858f32e50f1cdfdfe2ee45a8067d88d6",
+      "published_sha256": "26e4144b0456be6d7c4e46d8d7f41704858f32e50f1cdfdfe2ee45a8067d88d6",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_angle_rl.md",
+      "repository_path": "docs/runbooks/README_insertanything_angle_rl.md",
+      "source_sha256": "794efa8d4ccafdefeeb7fffdbdf3cf46be0c254a510a9a6a934243986d381a51",
+      "published_sha256": "794efa8d4ccafdefeeb7fffdbdf3cf46be0c254a510a9a6a934243986d381a51",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_depth_axis_gate.md",
+      "repository_path": "docs/runbooks/README_insertanything_depth_axis_gate.md",
+      "source_sha256": "943f863de1d4af4931a5c09badb8ded85d8a153f49ba6ab3a22fac5e758d2fdb",
+      "published_sha256": "943f863de1d4af4931a5c09badb8ded85d8a153f49ba6ab3a22fac5e758d2fdb",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_inhand_6d.md",
+      "repository_path": "docs/runbooks/README_insertanything_inhand_6d.md",
+      "source_sha256": "6696c255a023cc1f5368f821bd1a997c893bd7e86551f84aad7906ab282911e5",
+      "published_sha256": "6696c255a023cc1f5368f821bd1a997c893bd7e86551f84aad7906ab282911e5",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_reward_comparison_20261014.md",
+      "repository_path": "docs/runbooks/README_insertanything_reward_comparison_20261014.md",
+      "source_sha256": "23769aacc7958d93193c5129ed81dd6ab3a137f1139540b3ad84999a49689128",
+      "published_sha256": "23769aacc7958d93193c5129ed81dd6ab3a137f1139540b3ad84999a49689128",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile.md",
+      "source_sha256": "cb284a0d4f4fa6adef869174fca7c5a704dc81600ec7f7ce0b5aa8b75ece7ab3",
+      "published_sha256": "cb284a0d4f4fa6adef869174fca7c5a704dc81600ec7f7ce0b5aa8b75ece7ab3",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_failure_20261013.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_failure_20261013.md",
+      "source_sha256": "900a6bda26a4b357d2ae449336dc0c23ac8ed957c39cf355afe2e56d5754bb30",
+      "published_sha256": "900a6bda26a4b357d2ae449336dc0c23ac8ed957c39cf355afe2e56d5754bb30",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_normal_v4.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_normal_v4.md",
+      "source_sha256": "d052a56382c93099d5ae071758c4f9653f693ffa53e951eacb55d98843e33565",
+      "published_sha256": "d052a56382c93099d5ae071758c4f9653f693ffa53e951eacb55d98843e33565",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_pose.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_pose.md",
+      "source_sha256": "7c84661e0eb26219e9477f8729baef604d8bcfcd64fbface314730b0d1c27ac6",
+      "published_sha256": "7c84661e0eb26219e9477f8729baef604d8bcfcd64fbface314730b0d1c27ac6",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_pose_v2.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_pose_v2.md",
+      "source_sha256": "4d33592ab7b90d1ba6cad297d3fda1ed2441e20a7336cca3a085d1d8999a34b6",
+      "published_sha256": "4d33592ab7b90d1ba6cad297d3fda1ed2441e20a7336cca3a085d1d8999a34b6",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_rl_6d.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_rl_6d.md",
+      "source_sha256": "3ccbee1c5eb802e6ff94938bedf5e145611f9ebf0889d6ec5ea9cf15a509de34",
+      "published_sha256": "3ccbee1c5eb802e6ff94938bedf5e145611f9ebf0889d6ec5ea9cf15a509de34",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_scenes.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_scenes.md",
+      "source_sha256": "c539aa17d53f1ce08ef1bd8e333d61ee467b1b9d4db8830e8a68033afcc8a25a",
+      "published_sha256": "c539aa17d53f1ce08ef1bd8e333d61ee467b1b9d4db8830e8a68033afcc8a25a",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_symmetry.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_symmetry.md",
+      "source_sha256": "9f31e9006ea159b46edba7dc10b8113b0c50a67afaa4084a3af526be8ae764e0",
+      "published_sha256": "9f31e9006ea159b46edba7dc10b8113b0c50a67afaa4084a3af526be8ae764e0",
+      "packaging_changed": false
+    },
+    {
+      "project": "instr_vt",
+      "source_path": "README_insertanything_tactile_tcp_v3.md",
+      "repository_path": "docs/runbooks/README_insertanything_tactile_tcp_v3.md",
+      "source_sha256": "e7bedee5565b6a5043f9f44f70d3359a1aab4899d0acfe87826641380e939fbf",
+      "published_sha256": "e7bedee5565b6a5043f9f44f70d3359a1aab4899d0acfe87826641380e939fbf",
+      "packaging_changed": false
+    }
+  ]
+}

@@ -87,13 +87,14 @@ simulation_app = app_launcher.app
 
 import math
 import os
+import pickle
 import random
 from datetime import datetime
 
 import gymnasium as gym
 import InsertAnything.tasks as insertanything_tasks
 import isaaclab_tasks
-import omni
+import carb
 from isaaclab.envs import (
     DirectMARLEnv,
     DirectMARLEnvCfg,
@@ -103,7 +104,7 @@ from isaaclab.envs import (
 )
 from isaaclab.utils.assets import retrieve_file_path
 from isaaclab.utils.dict import print_dict
-from isaaclab.utils.io import dump_pickle, dump_yaml
+from isaaclab.utils.io import dump_yaml
 from isaaclab_rl.rl_games import PbtAlgoObserver, RlGamesGpuEnv, RlGamesVecEnvWrapper
 from isaaclab_tasks.utils.hydra import hydra_task_config
 from rl_games.common import env_configurations, vecenv
@@ -169,8 +170,11 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     # dump the configuration into log-directory
     dump_yaml(os.path.join(log_root_path, log_dir, "params", "env.yaml"), env_cfg)
     dump_yaml(os.path.join(log_root_path, log_dir, "params", "agent.yaml"), agent_cfg)
-    dump_pickle(os.path.join(log_root_path, log_dir, "params", "env.pkl"), env_cfg)
-    dump_pickle(os.path.join(log_root_path, log_dir, "params", "agent.pkl"), agent_cfg)
+    # Isaac Lab 2.3.2 removed dump_pickle; preserve the configuration snapshots
+    # with the standard library on both older and newer Isaac Lab versions.
+    for config_file, config_data in (("env.pkl", env_cfg), ("agent.pkl", agent_cfg)):
+        with open(os.path.join(log_root_path, log_dir, "params", config_file), "wb") as stream:
+            pickle.dump(config_data, stream, protocol=pickle.HIGHEST_PROTOCOL)
 
     # read configurations about the agent-training
     rl_device = agent_cfg["params"]["config"]["device"]
@@ -183,7 +187,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     if isinstance(env_cfg, ManagerBasedRLEnvCfg):
         env_cfg.export_io_descriptors = args_cli.export_io_descriptors
     else:
-        omni.log.warn(
+        carb.log_warn(
             "IO descriptors are only supported for manager based RL environments. No IO descriptors will be exported."
         )
 

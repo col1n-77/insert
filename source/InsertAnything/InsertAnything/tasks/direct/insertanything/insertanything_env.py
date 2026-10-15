@@ -150,6 +150,7 @@ class InsertAnythingEnv(DirectRLEnv):
         self.ema_factor = self.cfg.ctrl.ema_factor
         self.dead_zone_thresholds = torch.zeros((self.num_envs, 6), device=self.device)
         self.dr_frictions = torch.zeros((self.num_envs, 1), device=self.device)
+        self.initial_in_hand_tilt = torch.zeros(self.num_envs, device=self.device)
 
         self.fixed_pos_obs_frame = torch.zeros((self.num_envs, 3), device=self.device)
         self.init_fixed_pos_obs_noise = torch.zeros((self.num_envs, 3), device=self.device)
@@ -218,6 +219,8 @@ class InsertAnythingEnv(DirectRLEnv):
         }
 
     def __init__(self, cfg: InsertAnythingEnvCfg, render_mode: str | None = None, **kwargs):
+        if not np.isfinite(cfg.initial_in_hand_tilt_deg) or not 0 <= cfg.initial_in_hand_tilt_deg < 90:
+            raise ValueError("initial_in_hand_tilt_deg must be finite and in [0, 90)")
         self.cfg_task = cfg.task
         self.obs_order = list(self.cfg_task.obs_order)
         cfg.state_order = list(cfg.state_order)
@@ -583,7 +586,7 @@ class InsertAnythingEnv(DirectRLEnv):
         rot_actions = actions[:, 3:6]
 
         angle = torch.norm(rot_actions, p=2, dim=-1)
-        axis = rot_actions / angle.unsqueeze(-1)
+        axis = rot_actions / angle.unsqueeze(-1).clamp_min(1.0e-8)
         rot_actions_quat = torch_utils.quat_from_angle_axis(angle, axis)
         rot_actions_quat = torch.where(
             angle.unsqueeze(-1).repeat(1, 4) > 1.0e-6,
@@ -592,15 +595,15 @@ class InsertAnythingEnv(DirectRLEnv):
         )
         ctrl_target_fingertip_midpoint_quat = torch_utils.quat_mul(rot_actions_quat, self.fingertip_midpoint_quat)
 
-        target_euler_xyz = torch.stack(torch_utils.get_euler_xyz(ctrl_target_fingertip_midpoint_quat), dim=1)
-        target_euler_xyz[:, 0] = 3.14159
-        target_euler_xyz[:, 1] = 0.0
-
-        ctrl_target_fingertip_midpoint_quat = torch_utils.quat_from_euler_xyz(
-            roll=target_euler_xyz[:, 0],
-            pitch=target_euler_xyz[:, 1],
-            yaw=target_euler_xyz[:, 2],
-        )
+        if self.cfg.ctrl.lock_roll_pitch:
+            target_euler_xyz = torch.stack(torch_utils.get_euler_xyz(ctrl_target_fingertip_midpoint_quat), dim=1)
+            target_euler_xyz[:, 0] = 3.14159
+            target_euler_xyz[:, 1] = 0.0
+            ctrl_target_fingertip_midpoint_quat = torch_utils.quat_from_euler_xyz(
+                roll=target_euler_xyz[:, 0],
+                pitch=target_euler_xyz[:, 1],
+                yaw=target_euler_xyz[:, 2],
+            )
 
         self.generate_ctrl_signals(
             ctrl_target_fingertip_midpoint_pos=ctrl_target_fingertip_midpoint_pos,
@@ -625,7 +628,7 @@ class InsertAnythingEnv(DirectRLEnv):
         ctrl_target_fingertip_midpoint_pos = fixed_pos_action_frame + pos_error_clipped
 
         angle = torch.norm(rot_actions, p=2, dim=-1)
-        axis = rot_actions / angle.unsqueeze(-1)
+        axis = rot_actions / angle.unsqueeze(-1).clamp_min(1.0e-8)
 
         rot_actions_quat = torch_utils.quat_from_angle_axis(angle, axis)
         rot_actions_quat = torch.where(
@@ -635,15 +638,15 @@ class InsertAnythingEnv(DirectRLEnv):
         )
         ctrl_target_fingertip_midpoint_quat = torch_utils.quat_mul(rot_actions_quat, self.fingertip_midpoint_quat)
 
-        target_euler_xyz = torch.stack(torch_utils.get_euler_xyz(ctrl_target_fingertip_midpoint_quat), dim=1)
-        target_euler_xyz[:, 0] = 3.14159
-        target_euler_xyz[:, 1] = 0.0
-
-        ctrl_target_fingertip_midpoint_quat = torch_utils.quat_from_euler_xyz(
-            roll=target_euler_xyz[:, 0],
-            pitch=target_euler_xyz[:, 1],
-            yaw=target_euler_xyz[:, 2],
-        )
+        if self.cfg.ctrl.lock_roll_pitch:
+            target_euler_xyz = torch.stack(torch_utils.get_euler_xyz(ctrl_target_fingertip_midpoint_quat), dim=1)
+            target_euler_xyz[:, 0] = 3.14159
+            target_euler_xyz[:, 1] = 0.0
+            ctrl_target_fingertip_midpoint_quat = torch_utils.quat_from_euler_xyz(
+                roll=target_euler_xyz[:, 0],
+                pitch=target_euler_xyz[:, 1],
+                yaw=target_euler_xyz[:, 2],
+            )
 
         self.generate_ctrl_signals(
             ctrl_target_fingertip_midpoint_pos=ctrl_target_fingertip_midpoint_pos,
@@ -1217,6 +1220,23 @@ class InsertAnythingEnv(DirectRLEnv):
             q2=torch.tensor([1.0, 0.0, 0.0, 0.0], device=self.device).unsqueeze(0).repeat(self.num_envs, 1),
             t2=held_asset_pos_noise,
         )
+
+        # Rotate the peg about the existing grasp point, not its asset origin.
+        # R_WO' = R_WT * Ry(theta) * R_TW * R_WO. The hand and hole stay unchanged.
+        if self.cfg.initial_in_hand_tilt_deg > 0 and not correction_mode:
+            self.initial_in_hand_tilt[env_ids] = (
+                (2 * torch.rand(len(env_ids), device=self.device) - 1)
+                * np.deg2rad(self.cfg.initial_in_hand_tilt_deg)
+            )
+            normal_t = torch.tensor([0.0, 1.0, 0.0], device=self.device).repeat(self.num_envs, 1)
+            normal_w = torch_utils.quat_apply(self.fingertip_midpoint_quat, normal_t)
+            tilt_quat_w = torch_utils.quat_from_angle_axis(self.initial_in_hand_tilt, normal_w)
+            translated_held_asset_pos = self.fingertip_midpoint_pos + torch_utils.quat_apply(
+                tilt_quat_w, translated_held_asset_pos - self.fingertip_midpoint_pos
+            )
+            translated_held_asset_quat = torch_utils.quat_mul(tilt_quat_w, translated_held_asset_quat)
+        else:
+            self.initial_in_hand_tilt[env_ids] = 0.0
 
         held_state = self._held_asset.data.default_root_state.clone()
         held_state[:, 0:3] = translated_held_asset_pos + self.scene.env_origins

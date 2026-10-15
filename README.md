@@ -1,138 +1,51 @@
-# InsertAnything
+# InsertAnything：六自由度插入、角度奖励与触觉扩展
 
-[![Isaac Sim](https://img.shields.io/badge/Isaac%20Sim-5.0-76B900?logo=nvidia&logoColor=white)](https://developer.nvidia.com/isaac/sim)
-[![Isaac Lab](https://img.shields.io/badge/Isaac%20Lab-2.2.1-76B900)](https://github.com/isaac-sim/IsaacLab)
-[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg)](LICENSE)
-[![Checkpoints](https://img.shields.io/badge/Hugging%20Face-Checkpoints-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/tOMRmA/InsertAnything-checkpoints)
+基于 [mzhsoul/InsertAnything](https://github.com/mzhsoul/InsertAnything) 整理的研究代码，包含截至 **2026-10-15** 的本地修改。保留上游提交和 [BSD-3-Clause 许可证](LICENSE)，原始说明见 [README.upstream.md](README.upstream.md)。
 
-InsertAnything is an Isaac Lab project for force-conditioned, contact-rich peg-in-hole insertion in simulation and on a real Franka robot. It targets tight-clearance precision insertion, including Tol. IV settings with nominal clearance down to 0.02 mm.
+| 代码位置 | 内容 | 任务入口 |
+| --- | --- | --- |
+| `source/InsertAnything`、`scripts/` | 原版任务；Isaac Sim 5.1 兼容；初始在手偏角；可选六自由度控制；完整回合评估 | `InsertAnything-*` |
+| `InsertAnything_angle/` | 无触觉在手角度观测、轴线惩罚、奖励消融、可选深度倾角门控 | `InsertAnythingAngle-*` |
+| `InsertAnything_tactile/` | 双侧 GelSight Mini / Taxim、采集与校准、姿态和单角度网络、动态角度校正、触觉六自由度 PPO | `InsertAnythingTactile-*`、`InsertAnythingTactile6D-*` |
 
-The repository provides:
+三个系列保留独立入口，模型需要匹配各自的观测和配置。原版默认在手偏角为 0°、锁定 roll/pitch；Angle 默认随机在手偏角 ±10°、开放六自由度、角度观测噪声为 0°。新增深度倾角门控默认关闭。
 
-- Isaac Lab direct-RL environments for five fixed single-hole geometries.
-- RL-Games training and evaluation scripts.
-- Compact fingertip force feedback, reward shaping, and force logging.
-- Stable force-conditioned training with force-signal smoothing and state-independent policy standard deviation.
-- Real-robot closed-loop deployment utilities for calibrated Franka experiments.
-- Optional single-hole smoke-test checkpoints hosted on Hugging Face.
+## 安装和运行
 
-The codebase accompanies the paper:
-
-```text
-InsertAnything: Generalizable Contact-Rich Precision Insertion from Simulation to Reality
-```
-
-![InsertAnything overview](docs/figures/insertanything_overview.png)
-
-**Figure 1.** Overview of the robot setup, standard geometries and clearances, simulation training, and force-conditioned real-world deployment evaluated in the accompanying paper.
-
-![InsertAnything method](docs/figures/insertanything_method.png)
-
-**Figure 2.** InsertAnything stabilizes force-conditioned policy learning through exponential-moving-average force smoothing and a state-independent policy standard deviation.
-
-## Highlights
-
-- **Simulation-trained, real-robot deployed.** Policies are trained in Isaac Lab and deployed on a real Franka robot through calibrated target poses and deployable robot observations.
-- **Force-conditioned insertion.** A compact three-axis force signal supports local contact-aware correction under target-pose bias and tight clearances.
-- **Stable contact-rich RL.** Force-signal smoothing and state-independent policy standard deviation improve training stability when force observations change during contact transitions.
-- **Single-hole task interface.** Each environment contains one fixed hole and one held peg, with geometry, tolerance, randomization, and observation settings defined explicitly in the task configuration.
-
-## Project status
-
-InsertAnything is organized as an external Isaac Lab extension. The simulation side is self-contained inside this repository, including open USD assets, task configurations, RL-Games training configurations, and checkpoint instructions. The real-robot side provides deployment code and configuration templates, but requires a compatible Franka control stack, a calibrated robot setup, and operator supervision.
-
-## Installation
-
-Install NVIDIA Isaac Sim and Isaac Lab first. Follow the official Isaac Lab repository and installation guide:
-
-- [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab)
-
-The release was validated with Isaac Sim 5.0, Isaac Lab 2.2.1, and Python 3.11.
-
-Then install InsertAnything:
+原实验使用 Python 3.11、Isaac Sim 5.1、Isaac Lab 2.3.0、PyTorch 2.7.0+cu128 和 RL-Games 1.6.1。上游验证组合为 Isaac Sim 5.0 / Isaac Lab 2.2.1。先按各自官方说明安装仿真环境，再填写该环境 Python 的绝对路径：
 
 ```bash
-python -m pip install -e source/InsertAnything
+export INSERTANYTHING_BASE_PYTHON=/absolute/path/to/isaaclab-env/bin/python
+bash scripts/setup_local_env.sh
+./scripts/python.sh scripts/list_envs.py
 ```
 
-List the registered InsertAnything environments:
+也可以直接指定已有完整运行环境，启动脚本会优先导入本仓库源码：
 
 ```bash
-python scripts/list_envs.py
+export INSERTANYTHING_PYTHON=/absolute/path/to/isaaclab-env/bin/python
+./scripts/python.sh scripts/list_envs.py
+./InsertAnything_angle/scripts/python.sh scripts/train_angle_rl.py --help
 ```
 
-## Simulation experiments
+完整命令见[统一运行说明](docs/WORKFLOWS.md)，历史实验见[运行手册归档](docs/runbooks/README.md)，整理内容见[修改说明](docs/CHANGES.md)。历史手册中的本机绝对路径和结果链接指向原实验目录。
 
-Simulation tasks, reward settings, observation schemas, contact-force options, training commands, and evaluation commands are documented in:
+## CPU 验证
 
-- [Single-hole task README](source/InsertAnything/InsertAnything/tasks/direct/insertanything/README.md)
-
-Example training command:
+已有测试覆盖角度几何、噪声隔离、奖励和门控边界、光学校准、数据划分、姿态网络及在线角度估计：
 
 ```bash
-python scripts/rl_games/train.py --task InsertAnything-CircleHole-I-Direct-v0 --num_envs 128 --headless
+python3 -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
+python3 -m pip install -r requirements-test.txt
+bash scripts/test_cpu.sh -q
 ```
 
-Example evaluation command:
+已配置仿真环境时，可指定其 Python 直接测试，无需重新安装依赖。`requirements-test.txt` 和 GitHub Actions 只用于 CPU 测试，不替代 GPU 仿真或插入成功率评估。
 
-```bash
-python scripts/rl_games/play.py \
-  --task InsertAnything-LHole-III-Direct-v0 \
-  --num_envs 128 \
-  --headless \
-  --checkpoint source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints/InsertAnything-LHole-III-Direct-v0.pth
-```
+## 资产、模型和实验结果
 
-Registered simulation tasks:
+仓库保留上游孔与插销 USD。Isaac Sim 的机器人/场景资产需要安装环境、可用缓存或联网访问。触觉部分额外依赖独立安装的 TacEx、TacEx assets 和 Taxim 标定；已有生成器会在首次启动时生成本机 robot USD 覆盖层，见[资产说明](InsertAnything_tactile/assets/README.md)。
 
-| Gym ID | Description |
-| --- | --- |
-| `InsertAnything-CircleHole-I-Direct-v0` | Circle hole, Tol. I |
-| `InsertAnything-SquareHole-II-Direct-v0` | Square hole, Tol. II |
-| `InsertAnything-LHole-III-Direct-v0` | L-shape hole, Tol. III |
-| `InsertAnything-TriangleHole-IV-Direct-v0` | Triangle hole, Tol. IV |
-| `InsertAnything-HexagonHole-III-Direct-v0` | Hexagon hole, Tol. III with fingertip force feedback |
-| `InsertAnything-HexagonHole-IV-Direct-v0` | Hexagon hole, Tol. IV |
+模型、数据、日志、视频、虚拟环境和生成的触觉 USD 层不纳入 Git。评估需要匹配的权重及训练目录中的 `params/env.yaml`、`params/agent.yaml`、`run.json`（对应扩展）。上游权重入口见 [checkpoint README](source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints/README.md)。
 
-## Pretrained checkpoints
-
-Optional checkpoints are hosted on Hugging Face:
-
-- [InsertAnything checkpoints](https://huggingface.co/tOMRmA/InsertAnything-checkpoints)
-
-Download the released checkpoints:
-
-```powershell
-hf download tOMRmA/InsertAnything-checkpoints InsertAnything-LHole-III-Direct-v0.pth `
-  --repo-type model `
-  --local-dir source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints
-
-hf download tOMRmA/InsertAnything-checkpoints InsertAnything-HexagonHole-III-Direct-v0.pth `
-  --repo-type model `
-  --local-dir source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints
-```
-
-Checkpoint filenames, hashes, observation dimensions, and smoke-test commands are documented in the [checkpoint README](source/InsertAnything/InsertAnything/tasks/direct/insertanything/checkpoints/README.md).
-
-Large checkpoint binaries are intentionally ignored by git.
-
-## Real-robot deployment
-
-The real-robot deployment code lives in:
-
-```text
-source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/
-```
-
-The main multi-episode closed-loop runner is:
-
-```text
-source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/run_multi_episode_closed_loop.py
-```
-
-It requires a calibrated target pose, a compatible Franka control server, and the sensor/control interfaces described in [the sim-to-real README](source/InsertAnything/InsertAnything/tasks/direct/insertanything/sim2real/README.md).
-
-## License
-
-InsertAnything is released under the BSD 3-Clause license. See [LICENSE](LICENSE).
+历史对比中，角度奖励版与原版的观测和训练预算不同，不能当作只改变奖励的严格消融。当前源码含后续可选门控，旧模型成绩不代表门控版本已训练成功。各文件版权声明保留，外部 Isaac Sim、TacEx 及其资产遵循各自许可证。
