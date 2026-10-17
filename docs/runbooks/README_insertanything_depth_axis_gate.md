@@ -1,6 +1,6 @@
 # InsertAnything Angle：深度奖励的倾角门控
 
-更新：2026-10-15。用户提出在已有轴线对准项之外，给深度奖励增加 `m_theta(alpha)`。已在独立 `/data/nju/Lincao/InsertAnything_angle` 中实现可选版本 `axis_depth_gated_v1`；旧默认仍为 `axis_additive_v2`。无触觉，Actor/Critic 为 27/74 维，实际在手角度不加噪声，初始夹爪竖直、物体在手偏角 ±10°，执行开放六自由度。
+更新：2026-10-17（原训练与评估为 2026-10-15；代码/轨迹复核见第 11 节，自适应学习率重训见第 12 节）。用户提出在已有轴线对准项之外，给深度奖励增加 `m_theta(alpha)`。已在独立 `/data/nju/Lincao/InsertAnything_angle` 中实现可选版本 `axis_depth_gated_v1`；旧默认仍为 `axis_additive_v2`。无触觉，Actor/Critic 为 27/74 维，实际在手角度不加噪声，初始夹爪竖直、物体在手偏角 ±10°，执行开放六自由度。
 
 [返回总索引](README.md) · [Angle 训练与评估](README_insertanything_angle_rl.md) · [上一轮现有模型比较](README_insertanything_reward_comparison_20261014.md)
 
@@ -394,3 +394,192 @@ cd /data/nju/Lincao/InsertAnything_angle
   --intervention none \
   --output "outputs/friction_probe_repeat_$(date +%Y%m%d_%H%M%S)"
 ```
+
+
+## 11. 原策略为什么更少卡滞：代码与公平性复核（2026-10-17）
+
+本轮只读复查三个最终权重的已保存轨迹：原奖励、仅轴线项、轴线项＋深度门控；两种动作模式、两个种子，共 1,536 回合、459,264 条逐步记录。没有重新训练、修改奖励、控制器或原始实验数据。
+
+### 初始化与执行没有额外限制
+
+三个训练配置均为在手偏角采样 ±10°、TCP 初始竖直向下、roll/pitch 解锁。两个确定性评估种子的初始 TCP 和物体位姿、采样偏角逐值完全相同。实际初始轴线误差均值 4.789°，TCP 竖直向下误差均值 0.0277°；夹紧稳定后物体姿态可能变化，采样 ±10° 不是稳定后实测角度的硬裁剪范围，本批最大实际轴线误差为 13.523°，三组一致。
+
+Angle 继承原场景创建、物理初始化、控制器、成功与终止函数。当前深度门控训练快照的 23 项源文件哈希全部匹配。相对旧轴线训练快照，6 项文件因加入门控而变化，核心角度几何和 Gaussian 奖励函数的 AST 完全相同；旧配置缺少门控时按关闭恢复。
+
+13 项角度数学测试全部通过。独立重算全部记录，最大逐步奖励误差 1.091e-6，动作裁剪＋EMA 重建最大误差 2.384e-7；新增角度观测按前一状态正确对应，没有把 reset 采样角度当成全过程真实角度。未发现新增轴线项的符号、度/弧度、坐标系、重复累加或执行门控错误。
+
+原版保存配置在构造环境前写出，因此其中旧 observation/state 维度和 state_order 不能直接视作运行值。构造器会添加力观测和动力学 critic 字段；实际模型与轨迹为 26/73 维，Angle 为 27/74 维。
+
+### 原策略同样有持续下压的停滞失败
+
+| 最终权重 | 确定性成功 | 随机采样成功 | 确定性失败且末段停滞 | 随机失败且末段停滞 |
+| --- | --- | --- | --- | --- |
+| 原奖励 | 200/256 | 209/256 | 13/256 | 5/256 |
+| 原奖励＋轴线项 | 103/256 | 212/256 | 75/256 | 0/256 |
+| 原奖励＋轴线项＋深度门控 | 111/256 | 204/256 | 75/256 | 5/256 |
+
+停滞沿用最后 5 秒 TCP 三维运动范围 <1 mm 且最终失败的定义。原奖励的 13 个停滞回合全部持续饱和向下，末段平均 Z action 约 -1；剩余深度范围 1.792～12.397 mm，平均 6.407 mm。它也存在类似“已部分插入、持续下压但未到底”的症状，不能说只有新增奖励才会出现卡滞。
+
+### 同一初始条件的环境 8
+
+初始实际在手角度 0.960°、物体/孔轴线夹角 0.965°，三个确定性回合的初始状态完全相同。
+
+| 策略 | 首次成功 | 最终剩余深度 | 最终轴线误差 | 最终 XY 误差 |
+| --- | --- | --- | --- | --- |
+| 原奖励 | 3.60 s | 0.043 mm | 约 0.024° | 0.019 mm |
+| 原奖励＋轴线项 | 3.13 s | 0.089 mm | 0.465° | 0.110 mm |
+| 原奖励＋轴线项＋深度门控 | 未成功 | 7.965 mm | 1.139° | 0.189 mm |
+
+表中原策略近零轴线误差用归一化四元数和 atan2 重算；旧 CSV 的 float32 acos 约为 0.020°，微小差异来自数值精度，不影响成功判定。
+
+原策略曾在接近孔口时出现约 8° 的瞬时倾角，随后完成插入。仅轴线项的策略也能以较小倾角成功，因此这不是“必须倾斜 8° 才能插入”的证据。新门控策略在该回合的最大轴线误差仅 2.797°，深度门控全程等于 1，并没有在这个失败回合内削减深度奖励；其失败来自训练后形成的不同动作轨迹和接触状态。这里不能把门控参数直接当作执行阀门。
+
+![相同初始状态下的三条轨迹与同公式计分](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/case8_matched_trajectories.png)
+
+### 新奖励是否偏爱卡住
+
+固定已保存轨迹，全部按“原奖励＋轴线项＋门控”重新计分，使用训练 gamma=0.995：环境 8 原奖励策略的折扣回报约 589.39，门控策略约 289.01。这个状态下，成功路径在新奖励中仍明显更优。
+
+在原策略成功、门控策略失败的 102 对确定性回合中，新奖励仍有 97 对偏好原策略的成功路径，5 对偏好较早获得阶段奖励的失败路径。原奖励本身有 3 对这样的反向偏好；新增角度项使另外 2 对从偏好成功翻转为偏好失败，门控没有进一步翻转这 102 对的排序。后两对原策略都在约 14 秒才成功，而失败轨迹较早获得部分插入的累计奖励。
+
+这同时说明：多数失败不能解释成“新奖励认为卡住比成功更好”；但阶段持续收益、折扣与角度路径惩罚确实可能造成少数目标取舍。离线重评分不产生新策略，也不证明全局最优或训练因果关系。
+
+### 训练比较混入了重要变量
+
+直接读取冻结 checkpoint 的 Adam 状态再次核验：
+
+| 项目 | 原奖励 | 仅轴线项 | 轴线项＋门控 |
+| --- | --- | --- | --- |
+| 环境数 / 训练轮数 | 128 / 1,000 | 2,048 / 100 | 2,048 / 100 |
+| 采样转移数 | 16,384,000 | 26,214,400 | 26,214,400 |
+| Actor Adam 实际更新数 | 127,951 | 12,795 | 12,796 |
+| minibatch | 512 | 8,192 | 8,192 |
+| 学习率方案 | adaptive | constant | constant |
+| 最终 Actor 学习率 | 1.3169e-5 | 1e-4 | 1e-4 |
+| Actor / Critic 维度 | 26 / 73 | 27 / 74 | 27 / 74 |
+
+此前加速方案同时改变批量、轮数和学习率。更多并行样本不等于等量参数更新，也不保证等量学习进展；这一比较不能单独归因于角度奖励。更新次数本身同样不是充分的欠训练证明。确定性与采样模式的巨大差距显示当前均值动作策略更容易进入稳定顶住状态，随机动作仍能完成不少回合；这与控制器被锁死不符。
+
+仍存在的共同限制包括：力输入/力惩罚不含切向摩擦，接触法向合力可抵消；原 TCP 姿态和位置观测噪声仍开启；3° 奖励门控容差也不等价于精密 L 孔的几何装配容差。这些限制在原版和 Angle 中共有，不能单独作为新增奖励性能下降的因果解释。
+
+下一个能隔离角度项的实验应固定 27 维观测、初始化、PPO 超参数和预算，关闭深度门控，只比较 axis weight 0 / 1，并用相同确定性及采样评估。确认轴线项作用后再单独启用门控；本轮没有启动该训练，也没有继续加大角度权重。
+
+### 数据与复算
+
+- [完整审计数据](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/audit.json)
+- [源码核查记录](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/code_review.json)
+- [实际优化器更新数与 checkpoint 哈希](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/checkpoint_training_contract.json)
+- [同公式奖励排序及 5 个例外](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/counterfactual_ranking.json)
+- [成功率与停滞比例图](/data/nju/Lincao/InsertAnything_angle/outputs/reward_code_audit_20261017/success_and_stall.png)
+
+复算只需已有 Python 环境、上述冻结评估文件和 checkpoint，不启动 Isaac Sim；输出必须为新目录：
+
+```bash
+cd /data/nju/Lincao/InsertAnything_angle
+INSERT_AUDIT_OUT="outputs/reward_code_audit_$(date +%Y%m%d_%H%M%S)"
+/data/nju/Lincao/InsertAnything/.venv-isaac51/bin/python outputs/reward_code_audit_20261017/audit_insertanything_20261017.py --output "$INSERT_AUDIT_OUT"
+/data/nju/Lincao/InsertAnything/.venv-isaac51/bin/python outputs/reward_code_audit_20261017/complete_insertanything_audit_20261017.py --output "$INSERT_AUDIT_OUT"
+```
+
+`code_review.json` 中的单元测试结果记录 2026-10-17 已实际执行的 13/13；离线补充脚本复用这一执行事实，不自行运行测试。
+
+
+## 12. 同配置轴线奖励消融：自适应学习率重训（2026-10-17）
+
+用户要求停止固定学习率训练，改回原版自适应方案并重新开始。旧队列 `LHole_III_matched_axis_w0_w1_20261017_120222` 已在 control 第 23 轮停止，队列和训练进程均已退出；旧日志和已保存权重完整保留，未完成的结果不作为正式对比。
+
+北京时间 **2026-10-17 12:19:56** 已从头启动新队列 `LHole_III_matched_axis_w0_w1_adaptive_20261017_121956`。先训练 control（轴线权重 0）并评估，再训练 aligned（轴线权重 1）并评估，最后自动汇总。没有加载旧权重或优化器状态。此处记录启动事实，完成状态以 `study.json` 为准。
+
+### 两组共同配置
+
+| 项目 | 共同设置 |
+| --- | --- |
+| task | `InsertAnythingAngle-LHole-III-Direct-v0`，无触觉 |
+| Actor / Critic | 27 / 74 维，都包含实际在手角度 |
+| 初始化 | TCP 竖直向下；插销绕 TCP Y 采样 ±10° |
+| 动作 | 六自由度，roll/pitch 解锁 |
+| 新增角度观测噪声 | 0°；原观测噪声与动力学随机化保留 |
+| 原奖励及力惩罚 | 保留 |
+| 深度轴线门控 | 两组均关闭 |
+| 轴线 sigma | 5° |
+| num_envs / epochs | 2,048 / 500 |
+| horizon / seq_length | 128 / 128 |
+| minibatch / mini_epochs | 8,192 / 4 |
+| 初始学习率 | 1e-4 |
+| Actor 调度 | `adaptive`，`schedule_type=standard`，`kl_threshold=0.008` |
+| Central Critic 调度 | 配置沿用原版 `adaptive`；当前 rl_games 的实际行为仍为固定 1e-4，见下文 |
+| seed | 42，两组从头训练 |
+| save_frequency | 100 |
+| 每组计划采样 / Actor 更新 | 131,072,000 / 64,000（实际 optimizer 步数可能受 AMP 跳步影响） |
+
+唯一奖励差别是 `axis_alignment.reward_weight=0/1`。权重 0 组同样有角度输入，因此是奖励对照，不是旧 26 维策略的继续训练。自适应规则相同，但两组 KL 轨迹可能不同，因此实际学习率不要求逐轮相等。500 轮增加优化预算，是否收敛仍需依据评估判断。
+
+学习率依据是原版训练保存的 [agent.yaml](/data/nju/Lincao/InsertAnything/logs/rl_games/InsertAnything/LHole_III_inhand10_6d_20261012_233230/params/agent.yaml)。Actor 在每个 PPO mini-epoch 后以平均 KL 更新：KL >0.016 时学习率除以 1.5，KL <0.004 时乘以 1.5，范围为 1e-6～1e-2。当前安装的 rl_games 中，独立 central critic 只实现 linear 或 IdentityScheduler；原版 YAML 虽写 adaptive，实际 critic 仍保持初始学习率。本次保留原版行为，没有另行添加 critic 自适应机制。
+
+采用此前验证的 2,048 环境，避免曾在 4,096 环境发生的接触丢弃；两组顺序运行，不同时占用 GPU。原版任务、奖励、初始化和控制器代码未改动，仅扩展独立 Angle 训练入口及匹配队列的学习率参数。
+
+### 配置核对与自动评估
+
+入口为 [run_matched_reward_study.py](/data/nju/Lincao/InsertAnything_angle/scripts/run_matched_reward_study.py)。该队列默认 `--lr_schedule adaptive`；单独调用旧 [train_angle_rl.py](/data/nju/Lincao/InsertAnything_angle/scripts/train_angle_rl.py) 时，为保留历史命令行为默认仍是 constant，需要显式传 `--lr_schedule adaptive --kl_threshold 0.008`。
+
+- 离线预检通过：命令传参到实际配置生成语句的两组检查均通过，学习率字段与原版保存配置一致；错误的调度、KL 阈值及 schedule_type 均会被拒绝。
+- control 已保存实际 env.yaml/agent.yaml，29 项配置核对通过，包括原力惩罚、27/74 维、零新增噪声、关闭门控、批量和自适应参数。
+- aligned 写出配置后自动逐字段比较两组完整配置；只允许轴线权重和实验名不同。结果写 `configuration_comparison.json`。
+- 每阶段开始前核对源码 SHA256。若需改代码，应先停止队列，避免两组使用不同实现。
+- 训练日志出现接触丢弃、CUDA OOM 或 Python 异常栈会停止队列并记录失败。
+- 每组训练结束后评估最终 500 轮权重及最佳训练回报权重；统一为 128 环境 × seeds 1001/2002，确定性和随机模式各 256 回合。
+- 最终同轮数权重为主要对比，最佳训练回报权重为补充；比较物理成功率与轴线误差。单个训练 seed 不能证明跨训练种子的稳定优势。
+
+### 当前实验位置与查看
+
+- [实时状态](/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/study.json)
+- [队列主日志](/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956_launcher.log)
+- [control 训练日志](/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/train_control.log)
+- [启动与重启记录](/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/restart.json)
+- control 权重：`/data/nju/Lincao/InsertAnything_angle/logs/rl_games/InsertAnythingAngle/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956_control/nn`。
+- aligned 权重（该组启动时创建）：`/data/nju/Lincao/InsertAnything_angle/logs/rl_games/InsertAnythingAngle/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956_aligned/nn`。
+- 最终汇总（全部完成后生成）：`/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/comparison.json`；冻结权重、逐步状态和评估报告位于 `eval_control_final/`、`eval_aligned_final/` 等子目录。
+
+```bash
+cat /data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/study.json
+
+tail -f /data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/train_control.log
+```
+
+当前队列 PID 为 `2594375`。如需停止整个队列，下面的命令会先核对状态和进程身份，再发送 TERM；队列会停止它启动的子进程并保留数据，不再启动后续组：
+
+```bash
+python3 - <<'STOP'
+import json, os, signal
+from pathlib import Path
+study = Path('/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_adaptive_20261017_121956/study.json')
+s = json.loads(study.read_text())
+if s['status'] != 'running':
+    raise SystemExit('队列当前不是 running，请先查看 study.json')
+pid = s['pid']
+cmd = Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')
+assert any(b'run_matched_reward_study.py' in x for x in cmd)
+assert s['arguments']['study_name'].encode() in cmd
+os.kill(pid, signal.SIGTERM)
+STOP
+```
+
+本队列不自动续训。中断后需要根据已保存状态决定恢复或另建实验。
+
+### 新建同配置实验的复现命令
+
+本轮已经启动，以下命令仅用于将来新建另一套实验；运行前检查 GPU 是否空闲。增加 `--plan_only` 可只保存计划、不启动训练：
+
+```bash
+cd /data/nju/Lincao/InsertAnything_angle
+./scripts/python.sh scripts/run_matched_reward_study.py \
+  --study_name "LHole_III_matched_axis_w0_w1_adaptive_$(date +%Y%m%d_%H%M%S)" \
+  --num_envs 2048 --max_iterations 500 \
+  --horizon 128 --seq_length 128 --minibatch_size 8192 \
+  --save_frequency 100 --seed 42 \
+  --learning_rate 0.0001 --lr_schedule adaptive --kl_threshold 0.008 \
+  --initial_tilt_deg 10 --align_sigma_deg 5 \
+  --eval_num_envs 128 --eval_seeds 1001 2002
+```
+
+旧固定学习率队列已停止且完整保留：[旧队列状态](/data/nju/Lincao/InsertAnything_angle/outputs/LHole_III_matched_axis_w0_w1_20261017_120222/study.json)。如需显式复现固定学习率，应使用新实验名并传 `--lr_schedule constant`；旧 `run_reward_study.py` 不支持 minibatch 覆盖，本次继续使用新的匹配队列入口。

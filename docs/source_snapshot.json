@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-15",
+  "snapshot_date": "2026-10-17",
   "upstream": "https://github.com/mzhsoul/InsertAnything",
   "upstream_commit": "f033da5ccbc35a34369a0ac86e04c3e74b1408a0",
   "files": [
@@ -104,7 +104,7 @@
       "source_path": "README.md",
       "repository_path": "README.md",
       "source_sha256": "27bc72999f0eb000d73a8612bb84e22894a9476a861036f7523885147b600836",
-      "published_sha256": "f83e544ce81b54a659e19ac5364dd6765cb590370e1b61f9bc9d3be4f696e158",
+      "published_sha256": "1f23fa64644dae224248f8a1912b7ef9c94e18e7d895dd85a8783ee458bc0e23",
       "packaging_changed": true
     },
     {
@@ -688,7 +688,7 @@
       "source_path": "README.md",
       "repository_path": "InsertAnything_angle/README.md",
       "source_sha256": "464600670378b59cb9c60651cdf00e431914b4b122daddc767addbc4e6140366",
-      "published_sha256": "81e7c2f54fb51cadb405e6a7ac8944b9c7f2f3305cccfad63378fc251ff79c81",
+      "published_sha256": "893d9e1f04d4e31cdbff4aee3911ad3fd427130f19af53f17fc6605aff752668",
       "packaging_changed": true
     },
     {
@@ -735,8 +735,8 @@
       "project": "InsertAnything_angle",
       "source_path": "scripts/train_angle_rl.py",
       "repository_path": "InsertAnything_angle/scripts/train_angle_rl.py",
-      "source_sha256": "504e06884bf299c793db8740eca1199e9e969711f7de342137d29574d4d19c38",
-      "published_sha256": "504e06884bf299c793db8740eca1199e9e969711f7de342137d29574d4d19c38",
+      "source_sha256": "476816f3d413430e6b86eea584305b057f84cdcc9eba84af56551820a5c9e75a",
+      "published_sha256": "476816f3d413430e6b86eea584305b057f84cdcc9eba84af56551820a5c9e75a",
       "packaging_changed": false
     },
     {
@@ -792,7 +792,7 @@
       "source_path": "README.md",
       "repository_path": "InsertAnything_tactile/README.md",
       "source_sha256": "a5f864d14a3c2d700b9e3b63f191eac9f71b1578b0471761af05307dfab74fdd",
-      "published_sha256": "b9e648213491f5dd0372604af23234403e003f54150e2a81797a7e70f461d1f2",
+      "published_sha256": "15726cc1f28a57524a015fe96a71b814ad7b8c120a1c9f7c0f2a923a14564492",
       "packaging_changed": true
     },
     {
@@ -864,8 +864,8 @@
       "source_path": "scripts/collect_dynamic_angle.py",
       "repository_path": "InsertAnything_tactile/scripts/collect_dynamic_angle.py",
       "source_sha256": "faa3f966791da44c234f8349f263df2e52969a9df717d61a01e4a387dae84578",
-      "published_sha256": "faa3f966791da44c234f8349f263df2e52969a9df717d61a01e4a387dae84578",
-      "packaging_changed": false
+      "published_sha256": "6008e0760230b03fa87a5bafb51d8b3edccfe393310c1f7811c55100d44a86cc",
+      "packaging_changed": true
     },
     {
       "project": "InsertAnything_tactile",
@@ -904,8 +904,8 @@
       "source_path": "scripts/eval_tactile_rl.py",
       "repository_path": "InsertAnything_tactile/scripts/eval_tactile_rl.py",
       "source_sha256": "bdd95d74de5e4da8dc24e06ea6b1d3f67a7a18ad2178d866f9e8068012169ece",
-      "published_sha256": "bdd95d74de5e4da8dc24e06ea6b1d3f67a7a18ad2178d866f9e8068012169ece",
-      "packaging_changed": false
+      "published_sha256": "535216055007bcc9875e9f319bd0c27633908ec82eacbd5db362ff56517fe28d",
+      "packaging_changed": true
     },
     {
       "project": "InsertAnything_tactile",
@@ -1327,8 +1327,8 @@
       "project": "instr_vt",
       "source_path": "README_insertanything_depth_axis_gate.md",
       "repository_path": "docs/runbooks/README_insertanything_depth_axis_gate.md",
-      "source_sha256": "943f863de1d4af4931a5c09badb8ded85d8a153f49ba6ab3a22fac5e758d2fdb",
-      "published_sha256": "943f863de1d4af4931a5c09badb8ded85d8a153f49ba6ab3a22fac5e758d2fdb",
+      "source_sha256": "4f4be955bcd7514337969ec416e1cdd922a6af01c1c16b296259e21a8aa09c65",
+      "published_sha256": "4f4be955bcd7514337969ec416e1cdd922a6af01c1c16b296259e21a8aa09c65",
       "packaging_changed": false
     },
     {
@@ -1418,6 +1418,111 @@
       "source_sha256": "e7bedee5565b6a5043f9f44f70d3359a1aab4899d0acfe87826641380e939fbf",
       "published_sha256": "e7bedee5565b6a5043f9f44f70d3359a1aab4899d0acfe87826641380e939fbf",
       "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": ".github/workflows/cpu-tests.yml",
+      "repository_path": ".github/workflows/cpu-tests.yml",
+      "source_sha256": "cb248c4297a085fc75281b5a383b863928c059844097ddbe9ad3a9fb299ac41d",
+      "published_sha256": "cb248c4297a085fc75281b5a383b863928c059844097ddbe9ad3a9fb299ac41d",
+      "packaging_changed": false
+    },
+    {
+      "project": "InsertAnything_angle",
+      "source_path": "scripts/run_matched_reward_study.py",
+      "repository_path": "InsertAnything_angle/scripts/run_matched_reward_study.py",
+      "source_sha256": "6c4d85fead082fc65865720a100a7736ceb34acf4fafb8c1fc20dbd81443fd81",
+      "published_sha256": "c7b9b09f35a2d0224b5ec9a0c9718f898df11441580cbd7158f4d8c4f0d9e307",
+      "packaging_changed": true
+    },
+    {
+      "project": "publication",
+      "source_path": "InsertAnything_angle/tests/test_matched_study.py",
+      "repository_path": "InsertAnything_angle/tests/test_matched_study.py",
+      "source_sha256": "3b1366fa5919ad5f51ee4f8ce7536e5304042a1aaffce9bdaa4c06845600438d",
+      "published_sha256": "3b1366fa5919ad5f51ee4f8ce7536e5304042a1aaffce9bdaa4c06845600438d",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "InsertAnything_tactile/assets/README.md",
+      "repository_path": "InsertAnything_tactile/assets/README.md",
+      "source_sha256": "8a2a7c1f200ee6a55667d4a67d561124ee12369a3d2af4ec4118c9538c238b2b",
+      "published_sha256": "8a2a7c1f200ee6a55667d4a67d561124ee12369a3d2af4ec4118c9538c238b2b",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "README.upstream.md",
+      "repository_path": "README.upstream.md",
+      "source_sha256": "4977c37f3d91a711bd296226dab0cca04e42916f55606e17465ef4656ea6f4f6",
+      "published_sha256": "4977c37f3d91a711bd296226dab0cca04e42916f55606e17465ef4656ea6f4f6",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "docs/CHANGES.md",
+      "repository_path": "docs/CHANGES.md",
+      "source_sha256": "ed3e061e584f7f57462bb18e2fe73fe0601c626f9b7ba557a1ea5f755ac495c2",
+      "published_sha256": "ed3e061e584f7f57462bb18e2fe73fe0601c626f9b7ba557a1ea5f755ac495c2",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "docs/MATCHED_REWARD_STUDY.md",
+      "repository_path": "docs/MATCHED_REWARD_STUDY.md",
+      "source_sha256": "0a700ea3a998f344ae7d4e643a08ea4253fba22c9b577eabde47fb1ddeaa37db",
+      "published_sha256": "0a700ea3a998f344ae7d4e643a08ea4253fba22c9b577eabde47fb1ddeaa37db",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "docs/VALIDATION.md",
+      "repository_path": "docs/VALIDATION.md",
+      "source_sha256": "fb436285f1a6a53a0085b3b496bcf245a2b0992ff81cdc5d15490f0722bc9c82",
+      "published_sha256": "fb436285f1a6a53a0085b3b496bcf245a2b0992ff81cdc5d15490f0722bc9c82",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "docs/WORKFLOWS.md",
+      "repository_path": "docs/WORKFLOWS.md",
+      "source_sha256": "03cdf9dbe4ff488da0907fec0deb52000e0ffc4c9ee42c0f1d718d57d61498f4",
+      "published_sha256": "03cdf9dbe4ff488da0907fec0deb52000e0ffc4c9ee42c0f1d718d57d61498f4",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "docs/runbooks/README.md",
+      "repository_path": "docs/runbooks/README.md",
+      "source_sha256": "e19f11543d71d7cfe842f3066c42bf3f50aea6393e2f4d38ec78ba3e2bfc59df",
+      "published_sha256": "e19f11543d71d7cfe842f3066c42bf3f50aea6393e2f4d38ec78ba3e2bfc59df",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "pytest.ini",
+      "repository_path": "pytest.ini",
+      "source_sha256": "e77f5c2882b6c0a7ef938ac374f21b5420f2cdd9a5c415720ef5d9898a7608da",
+      "published_sha256": "e77f5c2882b6c0a7ef938ac374f21b5420f2cdd9a5c415720ef5d9898a7608da",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "requirements-test.txt",
+      "repository_path": "requirements-test.txt",
+      "source_sha256": "e47f2663ca4b6ea62058f169f83cf813ba063c0fa713451e52db70b76d2fbf2f",
+      "published_sha256": "e47f2663ca4b6ea62058f169f83cf813ba063c0fa713451e52db70b76d2fbf2f",
+      "packaging_changed": false
+    },
+    {
+      "project": "publication",
+      "source_path": "scripts/test_cpu.sh",
+      "repository_path": "scripts/test_cpu.sh",
+      "source_sha256": "38c738d5a1e42b58a2f39deb2b7b888da4fbb62ad60f0fad6f497deabac0d0ec",
+      "published_sha256": "38c738d5a1e42b58a2f39deb2b7b888da4fbb62ad60f0fad6f497deabac0d0ec",
+      "packaging_changed": false
     }
-  ]
+  ],
+  "previous_publication_commit": "d9d5eb432077a1c3016706917f447573259e4ee9"
 }

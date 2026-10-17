@@ -28,6 +28,9 @@ p.add_argument("--depth_gate_sigma_deg", type=float, default=5.)
 p.add_argument("--depth_gate_floor", type=float, default=.1)
 p.add_argument("--initial_tilt_deg", type=float, default=10.)
 p.add_argument("--learning_rate", type=float, default=1.e-4)
+p.add_argument("--lr_schedule", choices=("constant", "adaptive"), default="constant",
+               help="Actor LR schedule; adaptive restores the original task's KL-based schedule")
+p.add_argument("--kl_threshold", type=float, default=0.008)
 p.add_argument("--save_frequency", type=int, default=100)
 p.add_argument("--run_name")
 AppLauncher.add_app_launcher_args(p)
@@ -41,8 +44,8 @@ if not args.task.startswith("InsertAnythingAngle-"):
     p.error("Use an independent InsertAnythingAngle task")
 if args.angle_noise_std_deg < 0 or args.initial_tilt_deg < 0 or args.align_weight < 0:
     p.error("Noise, tilt range and reward weight must be nonnegative")
-if args.align_sigma_deg <= 0 or args.learning_rate <= 0:
-    p.error("Reward sigma and learning rate must be positive")
+if args.align_sigma_deg <= 0 or args.learning_rate <= 0 or not (0 < args.kl_threshold < float("inf")):
+    p.error("Reward sigma, learning rate and KL threshold must be positive")
 if not (0 <= args.depth_gate_tolerance_deg < 180 and 0 < args.depth_gate_sigma_deg < float("inf")
         and 0 <= args.depth_gate_floor <= 1):
     p.error("Depth gate requires tolerance in [0,180), finite positive sigma, and floor in [0,1]")
@@ -106,10 +109,11 @@ def main():
     c.update(name="InsertAnythingAngle", device=device, device_name=device, num_actors=args.num_envs,
              max_epochs=args.max_iterations, horizon_length=args.horizon,
              minibatch_size=args.minibatch_size, seq_length=args.seq_length,
-             learning_rate=args.learning_rate, lr_schedule="constant", save_frequency=args.save_frequency,
+             learning_rate=args.learning_rate, lr_schedule=args.lr_schedule,
+             schedule_type="standard", kl_threshold=args.kl_threshold, save_frequency=args.save_frequency,
              train_dir=str(root), full_experiment_name=name)
     c["central_value_config"].update(minibatch_size=args.minibatch_size,
-             learning_rate=args.learning_rate, lr_schedule="constant")
+             learning_rate=args.learning_rate, lr_schedule=args.lr_schedule, kl_threshold=args.kl_threshold)
     contract = {"schema": "insertanything_angle_rl_v3", "task": args.task, "seed": args.seed,
                 "status": "initializing", "started_at": datetime.now().astimezone().isoformat(),
                 "argv": sys.argv, "max_iterations": args.max_iterations,
@@ -124,7 +128,9 @@ def main():
                 "align_weight": args.align_weight, "align_sigma_deg": args.align_sigma_deg,
                 "initial_in_hand_tilt_deg": args.initial_tilt_deg, "initial_tcp": "original upright wrist",
                 "lock_roll_pitch": False, "learning_rate": args.learning_rate,
-                "lr_schedule": "constant (actor and central critic)",
+                "lr_schedule": f"{args.lr_schedule} (configured for actor and central critic)",
+                "schedule_type": "standard", "kl_threshold": args.kl_threshold,
+                "central_critic_scheduler_note": "Original rl_games central critic uses IdentityScheduler for non-linear schedules; adaptive affects the actor, critic remains at its initial LR",
                 "batch_transitions": args.num_envs*args.horizon}
     dump(output/"run.json", contract)
     snapshot_sources(output)

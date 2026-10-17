@@ -1,19 +1,22 @@
 # InsertAnything Angle：无触觉单角度观测与奖励消融
 
-基于本机修改过的 [InsertAnything](https://github.com/mzhsoul/InsertAnything) 新增独立任务包，不改写原项目。
-复用仓库根目录 `.venv-isaac51` 运行环境、原任务代码与资产；也可通过环境变量指定 Python。首次物理检查与训练结果见运行手册。
+原机器人不添加触觉。LHole-III 的 Actor/Critic 在原 26/73 维后追加实际在手角度，变为 27/74 维；新增角度噪声默认为 0°。TCP 初始竖直向下，插销绕 TCP +Y 采样 ±10°，执行开放六自由度。
 
-当前操作文档统一位于：
+每步奖励为 `r_original + w * (exp(-(alpha/sigma)^2) - 1)`，其中 alpha 是真实物体/孔轴线夹角，对准时新增项为 0。可选 `--depth_axis_gate` 仅调整连续深度项，默认关闭。
 
-- [环境、训练、奖励对照、评估及结果查看](../docs/runbooks/README_insertanything_angle_rl.md)
-- [可选深度倾角门控：实现、验证与训练](../docs/runbooks/README_insertanything_depth_axis_gate.md)
-- [全部操作文档索引](../docs/runbooks/README.md)
+- [完整安装、训练、评估与状态记录命令](../docs/WORKFLOWS.md)
+- [同配置 0/1 奖励对照、预算与学习率](../docs/MATCHED_REWARD_STUDY.md)
+- [历史实验、TCP 停滞和力分析](../docs/runbooks/README_insertanything_depth_axis_gate.md)
 
-`source/insertanything_angle` 提供六个 `InsertAnythingAngle-*` 任务。
-原机器人不添加触觉传感器；原观测后追加实际在手角度，当前默认不加角度观测噪声（标准差 0°）；每一步新增 `w*(exp(-(alpha/sigma)^2)-1)` 与原奖励相加，对准时新增项为 0。
-2026-10-15 新增可选 `--depth_axis_gate`：用真实物体/孔轴夹角平滑门控连续深度项；默认关闭，旧模型奖励保持兼容。
-默认夹爪初始竖直向下，物体绕 TCP Y 轴随机 ±10°，执行开放六自由度。
+最新 `scripts/run_matched_reward_study.py` 将两组训练、冻结评估及汇总串联；默认 adaptive，初始学习率 1e-4，KL 阈值 0.008。`scripts/train_angle_rl.py` 为兼容历史命令默认仍为 constant，使用自适应时显式传 `--lr_schedule adaptive --kl_threshold 0.008`。Critic 保留原 rl_games 实际行为。
 
-源程序沿用上游相应文件许可证；本目录为独立实验扩展，未修改上游训练权重。
+从仓库根目录查看计划（不会启动训练）：
 
-跨机器安装与当前命令见[统一运行说明](../docs/WORKFLOWS.md)。下方历史手册中的绝对路径和结果目录仅表示原实验记录。
+```bash
+./InsertAnything_angle/scripts/python.sh scripts/run_matched_reward_study.py \
+  --study_name "plan_$(date +%Y%m%d_%H%M%S)" --plan_only
+```
+
+正式训练用新的实验名并去掉 `--plan_only`。运行脚本默认复用仓库根目录的 `.venv-isaac51`，也支持 `INSERTANYTHING_PYTHON`。当前匹配队列专用于 LHole-III，单次训练支持六个已注册任务。
+
+本目录不包含训练数据和 checkpoint；`logs/`、`outputs/` 在运行后生成。源码沿用上游相应文件许可证。

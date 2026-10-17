@@ -8,10 +8,13 @@ p.add_argument("--num_envs",type=int,default=4)
 p.add_argument("--grasp_batches",type=int,default=20)
 p.add_argument("--seed",type=int,default=110000)
 p.add_argument("--initial_tilt_deg",type=float,default=10.,help="Peg tilt about TCP +Y; wrist starts upright")
+p.add_argument("--angle_checkpoint",type=Path,help="Calibrated v4 scalar model used during collection; defaults to the task configuration")
 p.add_argument("--output",type=Path,required=True)
 AppLauncher.add_app_launcher_args(p)
 args=p.parse_args();args.enable_cameras=True
 if min(args.num_envs,args.grasp_batches)<1:p.error("Counts must be positive")
+if args.angle_checkpoint is not None and not args.angle_checkpoint.is_file():
+    p.error("Missing --angle_checkpoint")
 app=AppLauncher(args).app
 import gymnasium as gym
 import h5py
@@ -27,6 +30,8 @@ def main():
     cfg=parse_env_cfg(args.task,device=args.device or "cuda:0",num_envs=args.num_envs)
     cfg.seed=args.seed;cfg.episode_length_s=100.
     cfg.tactile_alignment.initial_tilt_deg=args.initial_tilt_deg
+    if args.angle_checkpoint is not None:
+        cfg.tactile_alignment.checkpoint=str(args.angle_checkpoint.resolve())
     env=gym.make(args.task,cfg=cfg); b=env.unwrapped
     suffix=args.task.removeprefix("InsertAnythingTactile6D-").removesuffix("-Direct-v0")
     object_id=list(insertanything_tactile.rl.TASKS).index(suffix)
@@ -34,6 +39,7 @@ def main():
     fields={}
     meta={"schema":"tactile_dynamic_normal_v1","dataset_uuid":identity,"task":args.task,
           "initialization":b.initialization_metadata,
+          "angle_estimator":b.angle_estimator.metadata,
           "seed":args.seed,"object_id":object_id,"num_envs":args.num_envs,
           "grasp_batches":args.grasp_batches,"frames_at_control_steps":[0,4,8,12],
           "grouping":"independent physical grasp = dataset_uuid + grasp_id; keep frames together in splits",

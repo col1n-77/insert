@@ -19,6 +19,7 @@ from isaaclab.app import AppLauncher
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument("--policy_checkpoint", type=Path)
+p.add_argument("--angle_checkpoint", type=Path, help="Relocated copy of the training angle model; its SHA-256 must match run.json")
 p.add_argument("--num_envs", type=int, default=16)
 p.add_argument("--seeds", type=int, nargs="+", default=[1001, 1002, 1003, 1004])
 p.add_argument("--output", type=Path)
@@ -39,6 +40,11 @@ if contract["seed"] in args.seeds:
 # FullLoader accepts the tuple tags written by Isaac Lab's dump_yaml.
 saved_env = yaml.load((run_root / "params/env.yaml").read_text(), Loader=yaml.FullLoader)
 saved_agent = yaml.safe_load((run_root / "params/agent.yaml").read_text())
+if args.angle_checkpoint is not None:
+    angle_path = args.angle_checkpoint.resolve(strict=True)
+    if hashlib.sha256(angle_path.read_bytes()).hexdigest() != contract["angle_estimator"]["sha256"]:
+        p.error("Relocated angle checkpoint must match the training SHA-256")
+    saved_env["tactile_alignment"]["checkpoint"] = str(angle_path)
 args.output = args.output.resolve()
 args.output.mkdir(parents=True, exist_ok=False)
 args.enable_cameras = True
